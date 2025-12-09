@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VectorCoresAI | TradingView Indicators & V-CORE Engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="VectorCoresAI builds TradingView indicators and the V-CORE trend regime engine. Free tools today and a professional Pro suite for crypto, FX, indices and stocks coming soon.">
+
+    <link rel="icon" href="assets/vectorcoresai-mark.jpg">
+
+    <style>
+        :root {
+            /* COLOR SCHEME: Yellow Base, Purple Accent */
+            --accent: #eab308;        /* deep yellow */
+            --accent-alt: #4f46e5;    /* purple accent */
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --radius-lg: 18px;
+            --radius-xl: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            min-height: 100vh;
+            background-color: var(--accent);
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background-image: linear-gradient(
+                180deg,
+                #03030f 0%,
+                #050515 20%,
+                rgba(234, 179, 8, 0.14) 50%,
+                #211136 80%,
+                #140021 100%
+            );
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 16px 64px;
+        }
+
+        /* ---------- TICKER ---------- */
+        .ticker-wrap {
+            width: 100%;
+            background: #020617;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+        }
+
+        /* ---------- HEADER + BANNER ---------- */
+        .site-header {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 16px 16px 24px;
+        }
+
+        .banner-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius-xl);
+        }
+
+        .nav-row {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        nav a {
+            color: var(--text-muted);
+        }
+
+        nav a:hover {
+            color: var(--text-main);
+        }
+
+        @media (max-width: 900px) {
+            .nav-row {
+                justify-content: flex-start;
+                margin-top: 8px;
+            }
+            nav {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(34px, 4.6vw, 44px);
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            margin-bottom: 14px;
+        }
+
+        .hero-sub {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-bottom: 20px;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            padding: 4px 9px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: var(--text-muted);
+            background: rgba(15, 23, 42, 0.75);
+        }
+
+        .badge-main {
+            border-color: rgba(234, 179, 8, 0.8);
+            background: rgba(234, 179, 8, 0.09);
+            color: #fef9c3;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .btn {
+            border-radius: 999px;
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: var(--accent-alt);
+            color: #171717;
+            border-color: var(--accent-alt);
+        }
+
+        .btn-yellow {
+            background: var(--accent);
+            color: #171717;
+            border-color: var(--accent);
+        }
+
+        .btn-primary:hover,
+        .btn-yellow:hover {
+            opacity: 0.94;
+        }
+
+        .btn-ghost {
+            background: rgba(15, 23, 42, 0.7);
+            border-color: rgba(148, 163, 184, 0.6);
+            color: var(--text-muted);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent-alt);
+            color: var(--text-main);
+        }
+
+        .hero-footnote {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .hero-card {
+            background: radial-gradient(circle at top, #020617 0, #000 55%, #020617 100%);
+            border-radius: var(--radius-xl);
+            padding: 16px 18px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.9);
+        }
+
+        .hero-card-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .hero-card-title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #e5e7eb;
+        }
+
+        .hero-card-tag {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(234, 179, 8, 0.18);
+            color: #fef9c3;
+        }
+
+        .hero-card-body {
+            margin-top: 8px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(15, 23, 42, 0.95);
+        }
+
+        .hero-card-bars {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1px;
+            background: #020617;
+        }
+
+        .hero-bar {
+            height: 78px;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .hero-bar.bull {
+            background: linear-gradient(to top, rgba(234, 179, 8, 0.16), var(--accent));
+        }
+
+        .hero-bar.bear {
+            background: linear-gradient(to top, rgba(79, 70, 229, 0.2), var(--accent-alt));
+        }
+
+        .hero-bar.neutral {
+            background: linear-gradient(to top, rgba(75, 85, 99, 0.18), #6b7280);
+        }
+
+        .hero-card-legend {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 10px;
+            background: rgba(15, 23, 42, 0.96);
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .legend-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+        }
+
+        .legend-bull { background: var(--accent); }
+        .legend-bear { background: var(--accent-alt); }
+        .legend-neutral { background: #6b7280; }
+
+        .hero-side {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .hero-extra {
+            background: #020617;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--accent-alt);
+            padding: 10px;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .hero-extra-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 14px;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 900px) {
+            .hero-side {
+                order: 2;
+            }
+        }
+
+        /* ---------- SECTIONS ---------- */
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .section {
+            background: rgba(6, 12, 31, 0.96);
+            border-radius: var(--radius-xl);
+            padding: 20px 18px;
+            border: 1px solid var(--accent-alt);
+        }
+
+        .section h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 4px;
+        }
+
+        .section ul li {
+            font-size: 14px;
+            color: var(--text-muted);
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        /* Purple bullets for all normal lists inside .section, excluding contact links */
+        .section ul:not(.links-list) li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 18px;
+            line-height: 1;
+            color: var(--accent-alt);
+        }
+
+        /* ------------ Contact / links list overrides ------------ */
+
+        .links-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .links-list li {
+            font-size: 14px;
+            margin-bottom: 4px;
+            padding-left: 20px; /* space for icon */
+            position: relative;
+        }
+
+        .links-list li::before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 14px;
+            color: var(--accent-alt);
+        }
+
+        .links-list li.tv::before { content: "📈"; }
+        .links-list li.x::before { content: "✖️"; font-size: 10px; top: 4px; }
+        .links-list li.ig::before { content: "📸"; }
+        .links-list li.email::before { content: "📧"; }
+
+        .links-list li a {
+            color: var(--accent-alt);
+        }
+
+        .links-list a:hover {
+            text-decoration: underline;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .section-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        .card {
+            background: rgba(5, 10, 25, 0.98);
+            border-radius: var(--radius-lg);
+            padding: 14px;
+            border: 1px solid rgba(51, 65, 85, 0.9);
+        }
+
+        .card h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .card ul li {
+            font-size: 13px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .tools-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        .tool-thumb {
+            width: 100%;
+            height: 130px;
+            border-radius: 14px;
+            background: radial-gradient(circle at top, #1f2937, #020617);
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        .tool-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Placeholder thumb for tools without an image yet */
+        .tool-thumb-placeholder {
+            width: 100%;
+            height: 130px;
+            border-radius: 14px;
+            background: radial-gradient(circle at top, #111827, #020617);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        footer {
+            margin-top: 32px;
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ticker-wrap">
+    <div class="tradingview-widget-container">
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+          "symbols": [
+            { "proName": "CRYPTO:BTCUSD", "title": "BTC/USD" },
+            { "proName": "CRYPTO:ETHUSD", "title": "ETH/USD" },
+            { "proName": "CRYPTO:SOLUSD", "title": "SOL/USD" },
+            { "proName": "FX:GBPUSD", "title": "GBP/USD" },
+            { "proName": "FX:EURUSD", "title": "EUR/USD" },
+            { "proName": "OANDA:XAUUSD", "title": "Gold" },
+            { "proName": "NASDAQ:NDX", "title": "Nasdaq 100" },
+            { "proName": "SP:SPX", "title": "S&P 500" }
+          ],
+          "colorTheme": "dark",
+          "isTransparent": false,
+          "displayMode": "regular",
+          "locale": "en"
+        }
+        </script>
+    </div>
+</div>
+
+<header class="site-header">
+    <div style="margin: 18px 0 20px; display: flex; justify-content: center;">
+        <div
+            style="
+                background: #020617;
+                border-radius: 24px;
+                border: 2px solid #4f46e5;
+                width: 100%;
+                max-width: 1100px;
+                height: 260px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            "
+        >
+            <img
+                src="assets/vcore-banner.jpg"
+                alt="VectorCoresAI Banner"
+                style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                "
+            >
+        </div>
+    </div>
+
+    <div class="nav-row">
+        <nav>
+            <a href="#free">Free tools</a>
+            <a href="#vcore">V-CORE engine</a>
+            <a href="#pro">Pro suite</a>
+            <a href="#partner">PrimeXBT</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<div class="page">
+    <!-- HERO -->
+    <section class="hero">
+        <div>
+            <h1 class="hero-title">AI-assisted market analysis tools for clearer trading decisions.</h1>
+            <p class="hero-sub">
+                VectorCoresAI builds TradingView indicators and the V-CORE regime engine. The tools are designed to make
+                market direction, momentum and structure easier to read across crypto, FX, indices and stocks.
+            </p>
+            <div class="hero-badges">
+                <span class="badge badge-main">Built for TradingView</span>
+                <span class="badge">Trend-state visualisation</span>
+                <span class="badge">Crypto, FX, indices & stocks</span>
+            </div>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="#" id="tv-link-main" target="_blank" rel="noopener">
+                    View tools on TradingView →
+                </a>
+                <a class="btn btn-ghost" href="https://x.com/Vectorcoresai" target="_blank" rel="noopener">
+                    Follow V-CORE on X
+                </a>
+            </div>
+            <p class="hero-footnote">
+                Free indicators focus on higher-timeframe clarity. Pro editions extend the engine for more instruments,
+                more conditions and more flexible workflows.
+            </p>
+        </div>
+
+        <div class="hero-side">
+            <div class="hero-card">
+                <div class="hero-card-header">
+                    <span class="hero-card-title">Regime snapshot (example)</span>
+                    <span class="hero-card-tag">Bull → Neutral → Bear</span>
+                </div>
+                <div class="hero-card-body">
+                    <div class="hero-card-bars">
+                        <div class="hero-bar bull"></div>
+                        <div class="hero-bar bull"></div>
+                        <div class="hero-bar bull"></div>
+                        <div class="hero-bar neutral"></div>
+                        <div class="hero-bar neutral"></div>
+                        <div class="hero-bar bear"></div>
+                        <div class="hero-bar bear"></div>
+                        <div class="hero-bar bear"></div>
+                    </div>
+                    <div class="hero-card-legend">
+                        <div class="legend-group">
+                            <span class="legend-dot legend-bull"></span>
+                            <span>Bull regime</span>
+                        </div>
+                        <div class="legend-group">
+                            <span class="legend-dot legend-neutral"></span>
+                            <span>Neutral</span>
+                        </div>
+                        <div class="legend-group">
+                            <span class="legend-dot legend-bear"></span>
+                            <span>Bear regime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-extra">
+                <img src="assets/vectorcoresai-image1.jpg"
+                    alt="VectorCoresAI additional visual"
+                    class="hero-extra-img">
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- FREE TOOLS: 6 CARDS -->
+        <section class="section" id="free">
+            <h2>Free tools on TradingView</h2>
+            <p>
+                Start with the free VectorCoresAI indicators – all live on TradingView under the
+                <strong>Vectorcoresai</strong> account. These tools focus on readable, colour-coded regimes and
+                structure so traders can build their own approaches on top.
+            </p>
+            <div class="tools-grid">
+                <!-- CARD 1: SMA Matrix Lite (left) -->
+                <div class="card">
+                    <div class="tool-thumb">
+                        <img src="assets/sma.jpg" alt="V-CORE SMA Matrix Lite screenshot">
+                    </div>
+                    <h3>V-CORE SMA Matrix Lite</h3>
+                    <p>
+                        A clean 5-SMA structure tool (21, 50, 80, 100, 200). It highlights direction, compression and
+                        reclaim behaviour using widely used moving averages.
+                    </p>
+                    <p class="tagline">
+                        Open-source Lite edition – useful as a structural map alongside any trend or momentum system.
+                    </p>
+                    <p style="margin-top:8px;">
+                        <a class="btn btn-ghost" href="#" id="tv-link-sma-lite" target="_blank" rel="noopener">
+                            View on TradingView →
+                        </a>
+                    </p>
+                </div>
+
+                <!-- CARD 2: V-CORE Engine Free v1 (middle) -->
+                <div class="card">
+                    <div class="tool-thumb">
+                        <img src="assets/v1.jpg" alt="V-CORE Engine Free v1 screenshot">
+                    </div>
+                    <h3>V-CORE Engine Free v1</h3>
+                    <p>
+                        The first public release of the V-CORE regime visualiser. Yellow / purple backdrops mark
+                        sustained phases across crypto market cap and major assets.
+                    </p>
+                    <p class="tagline">
+                        Good starting point if you want to see how regime colouring changes the way you read a chart.
+                    </p>
+                    <p style="margin-top:8px;">
+                        <a class="btn btn-ghost" href="#" id="tv-link-free-v1" target="_blank" rel="noopener">
+                            View on TradingView →
+                        </a>
+                    </p>
+                </div>
+
+                <!-- CARD 3: V-CORE Engine Free v2 (right) -->
+                <div class="card">
+                    <div class="tool-thumb">
+                        <img src="assets/v2.jpg" alt="V-CORE Engine Free v2 screenshot">
+                    </div>
+                    <h3>V-CORE Engine Free v2</h3>
+                    <p>
+                        Updated free engine with refined regimes and more responsive transitions on crypto markets.
+                        Fixed, non-editable logic – built as an educational way to learn the V-CORE approach.
+                    </p>
+                    <p style="margin-top:8px;">
+                        <a class="btn btn-primary" href="#" id="tv-link-free-v2" target="_blank" rel="noopener">
+                            Open Free v2 on TradingView →
+                        </a>
+                    </p>
+                </div>
+
+                <!-- CARD 4: SMA + Bollinger Fusion -->
+                <div class="card">
+                    <div class="tool-thumb">
+                        <img src="assets/sma-bb-fusion.jpg" alt="VectorCoresAI SMA + Bollinger Fusion v1 screenshot">
+                    </div>
+                    <h3>VectorCoresAI SMA + Bollinger Fusion v1</h3>
+                    <p>
+                        A clean fusion of 21/50/100/200 SMAs with modern Bollinger visuals.
+                        Includes adaptive “Fusion Squeeze” shading and optional SMA toggles.
+                    </p>
+                    <p class="tagline">
+                        Part of the VectorCoresAI free toolkit.
+                    </p>
+                    <p style="margin-top:8px;">
+                        <a class="btn btn-ghost" href="#" id="tv-link-fusion" target="_blank" rel="noopener">
+                            View on TradingView →
+                        </a>
+                    </p>
+                </div>
+
+                <!-- CARD 5: V-CORE OB Lite (updated description) -->
+                <div class="card">
+                    <div class="tool-thumb-placeholder">
+                        Preview coming soon
+                    </div>
+                    <h3>V-CORE OB Lite</h3>
+                    <p>
+                        A clean, open-source introduction to Order Blocks.
+                    </p>
+                    <p>
+                        This Lite edition plots simple high/low boundaries for these blocks, with an optional midline and
+                        compact markers so traders can easily study where institutional footprints may form.
+                    </p>
+                    <p>
+                        <strong>Ideal for:</strong> Traders learning how OBs shape structure, rejection points, and
+                        continuation zones.
+                    </p>
+                    <p style="margin-top:8px;">
+                        <a class="btn btn-ghost" href="#" id="tv-link-ob-lite" target="_blank" rel="noopener">
+                            View on TradingView →
+                        </a>
+                    </p>
+                </div>
+
+                <!-- CARD 6: Coming soon -->
+                <div class="card">
+                    <div class="tool-thumb-placeholder">
+                        New indicator coming soon
+                    </div>
+                    <h3>New VectorCoresAI indicator</h3>
+                    <p>
+                        A new free indicator is in development for the VectorCoresAI toolkit. It will follow the same
+                        principles: clear structure, readable visuals and no hidden complexity.
+                    </p>
+                    <p class="tagline">
+                        Follow VectorCoresAI on TradingView and X to see when this goes live.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- V-CORE EXPLANATION -->
+        <section class="section" id="vcore">
+            <h2>What is V-CORE?</h2>
+            <p>
+                V-CORE is a trend-regime engine that sits underneath the VectorCoresAI stack. Instead of trying to pick
+                entries for you, it focuses on <strong>what kind of market you are currently in</strong>.
+            </p>
+            <ul>
+                <li>Colour-coded regimes (bull, bear, neutral) based on a combination of market conditions.</li>
+                <li>Designed as a <strong>context layer</strong> that trading ideas, risk and management can plug into.</li>
+                <li>Built first on crypto, then extended across FX, indices and stocks in the Pro editions.</li>
+            </ul>
+            <p>
+                Free V-CORE releases give a locked-down view of that regime logic. Pro editions expose additional states,
+                more flexible behaviour and tighter integration into different workflows.
+            </p>
+        </section>
+
+        <!-- PRO SECTION -->
+        <section class="section" id="pro">
+            <h2>V-CORE Pro Engine &amp; Signal Governor</h2>
+            <div class="section-grid">
+                <div class="card">
+                    <h3>V-CORE Engine Pro</h3>
+                    <p>
+                        The professional engine used internally and with early testers. It is designed to read market
+                        structure in a consistent, repeatable way across crypto, FX, indices and stocks.
+                    </p>
+                    <ul>
+                        <li>Additional internal regime states beyond simple bull / bear / neutral.</li>
+                        <li>Behaviour on stocks and indices is tuned for cleaner rotations and less visual noise.</li>
+                        <li>Forex behaviour focuses on how directional moves build, compress and release over time.</li>
+                    </ul>
+                    <p class="tagline">
+                        Engine Pro does not promise profitable trades. It aims to provide a stable bias map so timing and
+                        management decisions feel more deliberate.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>The Signal Governor (“The Gov”)</h3>
+                    <p>
+                        The Gov sits on top of the engine as a classification and filtering layer. It helps highlight
+                        sections of market behaviour that are more or less favourable for trade ideas.
+                    </p>
+                    <ul>
+                        <li>Tags opportunities into categories such as stronger, standard or lower-quality zones.</li>
+                        <li>Flags environments that often align with thin liquidity or unstable volatility.</li>
+                        <li>Built to sit alongside manual workflows, bots or external execution systems.</li>
+                    </ul>
+                    <p class="tagline">
+                        Early internal feedback describes the Gov as a way to separate ideas that deserve focus from
+                        those that are better treated as background noise.
+                    </p>
+                </div>
+            </div>
+            <p style="margin-top:10px;font-size:13px;color:var(--text-muted);">
+                The V-CORE Pro suite is in active development. Early users on the access list will receive a free trial
+                of Engine Pro and the Signal Governor when retail editions go live.
+            </p>
+            <p style="margin-top:8px;">
+                <a class="btn btn-ghost" href="mailto:admin@vectorcoresai.com?subject=V-CORE%20Pro%20Suite%20Early%20Access">
+                    Join early access — request a Pro trial
+                </a>
+            </p>
+        </section>
+
+        <!-- PARTNER SECTION -->
+        <section class="section" id="partner">
+            <h2>PrimeXBT – Recommended Exchange</h2>
+            <p>
+                For users who want an exchange to test ideas and study market behaviour, PrimeXBT is a recommended
+                partner venue. It offers multi-asset access and charting suitable for working with higher-timeframe
+                concepts like V-CORE regimes.
+            </p>
+            <p>
+                You can support the project by signing up through the referral link below. Some regions may see
+                promotional bonuses or discounts depending on PrimeXBT’s own campaigns.
+            </p>
+            <p style="margin-top:8px;">
+                <a class="btn btn-yellow" href="https://ref.primexbt.direct/223928" target="_blank" rel="noopener">
+                    Open PrimeXBT with referral link →
+                </a>
+            </p>
+            <p style="margin-top:10px;font-size:12px;color:var(--text-muted);">
+                VectorCoresAI does not provide brokerage services and is not responsible for the policies or operations
+                of any exchange. Always check whether an exchange is appropriate for your jurisdiction and risk profile.
+            </p>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="section" id="contact">
+            <h2>Contact &amp; Links</h2>
+            <p>
+                Questions, feedback, or interest in the V-CORE Pro suite and Signal Governor? Reach out below.
+            </p>
+            <ul class="links-list">
+                <li class="tv"><strong>TradingView:</strong> <a href="#" id="tv-profile-link" target="_blank" rel="noopener">Vectorcoresai on TradingView</a></li>
+                <li class="x"><strong>X (Twitter):</strong> <a href="https://x.com/Vectorcoresai" target="_blank" rel="noopener">@Vectorcoresai</a></li>
+                <li class="ig"><strong>Instagram:</strong> <a href="https://instagram.com/Vectorcoresai" target="_blank" rel="noopener">@Vectorcoresai</a></li>
+                <li class="email"><strong>Email:</strong> <a href="mailto:admin@vectorcoresai.com">admin@vectorcoresai.com</a></li>
+            </ul>
+            <p style="margin-top:8px;font-size:13px;color:var(--text-muted);">
+                Use the subject line <strong>"V-CORE"</strong> or <strong>"Signal Governor"</strong> if you’re asking
+                about specific tools or early access.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <span>© <span id="year"></span> VectorCoresAI — TradingView indicator &amp; analytics brand.</span>
+        <span>All tools are for educational and analytical use only and do not constitute financial advice.</span>
+    </footer>
+</div>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // TradingView profile + scripts
+    var tvProfile = "https://www.tradingview.com/u/Vectorcoresai/#published-scripts";
+    document.getElementById("tv-link-main").href = tvProfile;
+    document.getElementById("tv-link-free-v1").href = tvProfile;
+    document.getElementById("tv-link-sma-lite").href = tvProfile;
+    document.getElementById("tv-link-free-v2").href = tvProfile;
+    document.getElementById("tv-link-fusion").href = tvProfile;
+    document.getElementById("tv-link-ob-lite").href = tvProfile;
+    document.getElementById("tv-profile-link").href = tvProfile;
+</script>
+</body>
+</html>
