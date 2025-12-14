@@ -32,12 +32,13 @@
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            /* LIGHTER MIDDLE GRADIENT TONE */
             background-image: linear-gradient(
                 180deg,
                 #03030f 0%,
                 #050515 20%,
-                rgba(234, 179, 8, 0.14) 50%,
-                #211136 80%,
+                rgba(234, 179, 8, 0.28) 50%,
+                #2a1742 80%,
                 #140021 100%
             );
             color: var(--text-main);
@@ -153,7 +154,7 @@
             letter-spacing: 0.09em;
             padding: 4px 9px;
             border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.4);
+            border: 1px solid transparent;
             color: var(--text-muted);
             background: rgba(15, 23, 42, 0.75);
         }
@@ -209,6 +210,13 @@
         .btn-ghost:hover {
             border-color: var(--accent-alt);
             color: var(--text-main);
+        }
+
+        .btn-readmore {
+            align-self: flex-start;
+            margin-top: 4px;
+            padding: 6px 12px;
+            font-size: 12px;
         }
 
         .hero-footnote {
@@ -372,7 +380,6 @@
             margin-bottom: 4px;
         }
 
-        /* Purple bullets for all normal lists inside .section, excluding contact links */
         .section ul:not(.links-list) li::before {
             content: "•";
             position: absolute;
@@ -383,8 +390,6 @@
             color: var(--accent-alt);
         }
 
-        /* ------------ Contact / links list overrides ------------ */
-
         .links-list {
             list-style: none;
             padding-left: 0;
@@ -393,7 +398,7 @@
         .links-list li {
             font-size: 14px;
             margin-bottom: 4px;
-            padding-left: 20px; /* space for icon */
+            padding-left: 20px;
             position: relative;
         }
 
@@ -435,6 +440,13 @@
             border-radius: var(--radius-lg);
             padding: 14px;
             border: 1px solid rgba(51, 65, 85, 0.9);
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-compact {
+            min-height: 220px;
         }
 
         .card h3 {
@@ -451,6 +463,11 @@
             font-size: 13px;
         }
 
+        .card-teaser,
+        .card-more {
+            font-size: 13px;
+        }
+
         .tagline {
             font-size: 13px;
             color: var(--text-muted);
@@ -459,8 +476,12 @@
 
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 14px;
+        }
+
+        .tools-grid-extra {
+            margin-top: 18px;
         }
 
         @media (max-width: 900px) {
@@ -485,7 +506,6 @@
             display: block;
         }
 
-        /* Placeholder thumb for tools without an image yet */
         .tool-thumb-placeholder {
             width: 100%;
             height: 130px;
@@ -499,6 +519,107 @@
             color: var(--text-muted);
             text-align: center;
             padding: 0 10px;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 7, 18, 0.82);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+        }
+
+        .modal-card {
+            background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--accent-alt);
+            max-width: 420px;
+            width: 100%;
+            padding: 20px 20px 18px;
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+            position: relative;
+        }
+
+        .modal-card h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .modal-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: var(--text-main);
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .modal-field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 13px;
+        }
+
+        .modal-field label {
+            color: var(--text-muted);
+        }
+
+        .modal-input {
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 999px;
+            border: 1px solid rgba(51, 65, 85, 0.9);
+            padding: 8px 12px;
+            font-size: 13px;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        .modal-input:focus {
+            border-color: var(--accent-alt);
+        }
+
+        .modal-textarea {
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 14px;
+            border: 1px solid rgba(51, 65, 85, 0.9);
+            padding: 8px 12px;
+            font-size: 13px;
+            color: var(--text-main);
+            outline: none;
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .modal-textarea:focus {
+            border-color: var(--accent-alt);
+        }
+
+        .modal-submit {
+            margin-top: 6px;
+            width: 100%;
+            justify-content: center;
         }
 
         footer {
@@ -589,7 +710,7 @@
             <div class="hero-badges">
                 <span class="badge badge-main">Built for TradingView</span>
                 <span class="badge">Trend-state visualisation</span>
-                <span class="badge">Crypto, FX, indices & stocks</span>
+                <span class="badge">Crypto, FX, indices &amp; stocks</span>
             </div>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="#" id="tv-link-main" target="_blank" rel="noopener">
@@ -641,14 +762,14 @@
 
             <div class="hero-extra">
                 <img src="assets/vectorcoresai-image1.jpg"
-                    alt="VectorCoresAI additional visual"
-                    class="hero-extra-img">
+                     alt="VectorCoresAI additional visual"
+                     class="hero-extra-img">
             </div>
         </div>
     </section>
 
     <main>
-        <!-- FREE TOOLS: 6 CARDS -->
+        <!-- FREE TOOLS: 16 CARDS (4 visible, 12 hidden until expanded) -->
         <section class="section" id="free">
             <h2>Free tools on TradingView</h2>
             <p>
@@ -656,8 +777,10 @@
                 <strong>Vectorcoresai</strong> account. These tools focus on readable, colour-coded regimes and
                 structure so traders can build their own approaches on top.
             </p>
+
+            <!-- FIRST ROW: ALWAYS VISIBLE (4 CARDS) -->
             <div class="tools-grid">
-                <!-- CARD 1: SMA Matrix Lite (left) -->
+                <!-- CARD 1: SMA Matrix Lite -->
                 <div class="card">
                     <div class="tool-thumb">
                         <img src="assets/sma.jpg" alt="V-CORE SMA Matrix Lite screenshot">
@@ -670,14 +793,14 @@
                     <p class="tagline">
                         Open-source Lite edition – useful as a structural map alongside any trend or momentum system.
                     </p>
-                    <p style="margin-top:8px;">
+                    <p style="margin-top:8px;display:none;">
                         <a class="btn btn-ghost" href="#" id="tv-link-sma-lite" target="_blank" rel="noopener">
                             View on TradingView →
                         </a>
                     </p>
                 </div>
 
-                <!-- CARD 2: V-CORE Engine Free v1 (middle) -->
+                <!-- CARD 2: V-CORE Engine Free v1 -->
                 <div class="card">
                     <div class="tool-thumb">
                         <img src="assets/v1.jpg" alt="V-CORE Engine Free v1 screenshot">
@@ -690,14 +813,14 @@
                     <p class="tagline">
                         Good starting point if you want to see how regime colouring changes the way you read a chart.
                     </p>
-                    <p style="margin-top:8px;">
+                    <p style="margin-top:8px;display:none;">
                         <a class="btn btn-ghost" href="#" id="tv-link-free-v1" target="_blank" rel="noopener">
                             View on TradingView →
                         </a>
                     </p>
                 </div>
 
-                <!-- CARD 3: V-CORE Engine Free v2 (right) -->
+                <!-- CARD 3: V-CORE Engine Free v2 -->
                 <div class="card">
                     <div class="tool-thumb">
                         <img src="assets/v2.jpg" alt="V-CORE Engine Free v2 screenshot">
@@ -707,7 +830,7 @@
                         Updated free engine with refined regimes and more responsive transitions on crypto markets.
                         Fixed, non-editable logic – built as an educational way to learn the V-CORE approach.
                     </p>
-                    <p style="margin-top:8px;">
+                    <p style="margin-top:8px;display:none;">
                         <a class="btn btn-primary" href="#" id="tv-link-free-v2" target="_blank" rel="noopener">
                             Open Free v2 on TradingView →
                         </a>
@@ -719,7 +842,7 @@
                     <div class="tool-thumb">
                         <img src="assets/sma-bb-fusion.jpg" alt="VectorCoresAI SMA + Bollinger Fusion v1 screenshot">
                     </div>
-                    <h3>VectorCoresAI SMA + Bollinger Fusion v1</h3>
+                    <h3>VCAI SMA + Bollinger Fusion v1</h3>
                     <p>
                         A clean fusion of 21/50/100/200 SMAs with modern Bollinger visuals.
                         Includes adaptive “Fusion Squeeze” shading and optional SMA toggles.
@@ -727,50 +850,285 @@
                     <p class="tagline">
                         Part of the VectorCoresAI free toolkit.
                     </p>
-                    <p style="margin-top:8px;">
+                    <p style="margin-top:8px;display:none;">
                         <a class="btn btn-ghost" href="#" id="tv-link-fusion" target="_blank" rel="noopener">
                             View on TradingView →
                         </a>
                     </p>
                 </div>
+            </div>
 
-                <!-- CARD 5: V-CORE OB Lite (updated description) -->
+            <!-- SHOW MORE BUTTON -->
+            <p style="margin-top:18px;">
+                <button type="button" class="btn btn-ghost" id="tools-toggle-btn">
+                    Show more tools
+                </button>
+            </p>
+
+            <!-- EXTRA ROWS: HIDDEN UNTIL TOGGLED (CARDS 5–16) -->
+            <div class="tools-grid tools-grid-extra" id="extra-tools" style="display:none;">
+                <!-- CARD 5: V-CORE OB Lite -->
                 <div class="card">
-                    <div class="tool-thumb-placeholder">
-                        Preview coming soon
+                    <div class="tool-thumb">
+                        <img src="assets/v-core-ob-lite.jpg" alt="V-CORE OB Lite placeholder">
                     </div>
                     <h3>V-CORE OB Lite</h3>
                     <p>
-                        A clean, open-source introduction to Order Blocks.
+                        <span class="card-teaser">
+                            A clean, open-source introduction to Order Blocks. This Lite edition plots simple high/low
+                            boundaries for these blocks, with an optional midline.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            Compact markers help traders study where institutional footprints may form.
+                            <strong>Ideal for:</strong> Traders learning how OBs shape structure, rejection points, and
+                            continuation zones.
+                        </span>
                     </p>
-                    <p>
-                        This Lite edition plots simple high/low boundaries for these blocks, with an optional midline and
-                        compact markers so traders can easily study where institutional footprints may form.
-                    </p>
-                    <p>
-                        <strong>Ideal for:</strong> Traders learning how OBs shape structure, rejection points, and
-                        continuation zones.
-                    </p>
-                    <p style="margin-top:8px;">
+                    <p style="margin-top:8px;display:none;">
                         <a class="btn btn-ghost" href="#" id="tv-link-ob-lite" target="_blank" rel="noopener">
                             View on TradingView →
                         </a>
                     </p>
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
                 </div>
 
-                <!-- CARD 6: Coming soon -->
+                <!-- CARD 6: VCAI Volume Lite -->
                 <div class="card">
-                    <div class="tool-thumb-placeholder">
-                        New indicator coming soon
+                    <div class="tool-thumb">
+                        <img src="assets/vcai-volume-lite.jpg" alt="VCAI Volume Lite indicator screenshot">
                     </div>
-                    <h3>New VectorCoresAI indicator</h3>
+                    <h3>VCAI Volume Lite</h3>
                     <p>
-                        A new free indicator is in development for the VectorCoresAI toolkit. It will follow the same
-                        principles: clear structure, readable visuals and no hidden complexity.
+                        <span class="card-teaser">
+                            VCAI Volume Lite gives a clear, modern view of real buy–sell participation using
+                            colour-coded volume bars.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            A lightweight tool for quickly spotting shifts in momentum, strength, and market pressure.
+                        </span>
                     </p>
-                    <p class="tagline">
-                        Follow VectorCoresAI on TradingView and X to see when this goes live.
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
+                </div>
+
+                <!-- CARD 7: VCAI BOS-Zone PRO -->
+                <div class="card">
+                    <div class="tool-thumb">
+                        <img src="assets/vcai-bos-zone-pro.jpg" alt="VCAI BOS-Zone PRO indicator screenshot">
+                    </div>
+                    <h3>VCAI BOS-Zone PRO</h3>
+                    <p>
+                        <span class="card-teaser">
+                            BOS-Zone PRO identifies Breaks of Structure and automatically plots the key order-block
+                            zones behind them.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            It creates a precise structural roadmap for trend continuation, reversals, and refined entry
+                            timing.
+                        </span>
                     </p>
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
+                </div>
+
+                <!-- CARD 8: VCAI Volume & Liquidity Map Lite -->
+                <div class="card">
+                    <div class="tool-thumb">
+                        <img src="assets/vcai-volume-liquidity-lite.jpg" alt="VCAI Volume &amp; Liquidity Map Lite indicator screenshot">
+                    </div>
+                    <h3>VCAI Volume &amp; Liquidity Map Lite v1.0</h3>
+                    <p>
+                        <span class="card-teaser">
+                            VCAI Volume &amp; Liquidity Map Lite highlights where trading activity is concentrated by
+                            mapping liquidity and volume horizontally beside price.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            It helps you see where the market is accepting value—and where it’s thin, reactive, or
+                            vulnerable.
+                        </span>
+                    </p>
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
+                </div>
+
+                <!-- CARD 9: VCAI MACD Lite -->
+                <div class="card card-compact">
+                    <div class="tool-thumb">
+                        <img src="assets/vcai-macd-lite.jpg" alt="VCAI MACD Lite indicator screenshot">
+                    </div>
+                    <h3>VCAI MACD Lite</h3>
+                    <p>
+                        <span class="card-teaser">
+                            A clean MACD built with VCAI visuals — selectable EMA/SMA and clear momentum shifts.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            A 2-tone histogram shows strength or fading pressure at a glance.
+                        </span>
+                    </p>
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
+                </div>
+
+                <!-- CARD 10: V-CORE Engine Pro -->
+                <div class="card card-compact">
+                    <div class="tool-thumb">
+                        <img src="assets/v-core-engine-pro.jpg" alt="V-CORE Engine Pro placeholder">
+                    </div>
+                    <h3>V-CORE Engine Pro</h3>
+                    <p>
+                        <span class="card-teaser">
+                            Planned professional edition of the V-CORE engine, extending the regime logic beyond the
+                            free releases.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            Designed for more detailed context mapping across crypto, FX, indices and stocks. Built for
+                            traders who want extended regime detail inside their charting workflow.
+                        </span>
+                    </p>
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
+                </div>
+
+                <!-- CARD 11: V-CORE Pro Signal Governor -->
+                <div class="card card-compact">
+                    <div class="tool-thumb">
+                        <img src="assets/v-core-signal-governor.jpg" alt="V-CORE Pro Signal Governor placeholder">
+                    </div>
+                    <h3>V-CORE Pro Signal Governor</h3>
+                    <p>
+                        <span class="card-teaser">
+                            Planned TradingView-focused version of the Signal Governor — built to sit on top of the
+                            V-CORE engine and classify environments for trade ideas.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            Built to support more selective execution and filtering when Pro editions are released.
+                            Designed as a companion to Engine Pro, not a standalone signal system.
+                        </span>
+                    </p>
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
+                </div>
+
+                <!-- CARD 12: VCAI Trend Suite (VWAP + SuperTrend + ORB + Signals) -->
+                <div class="card card-compact">
+                    <div class="tool-thumb">
+                        <img src="assets/vcai-trend-suite.jpg" alt="VCAI Trend Suite placeholder">
+                    </div>
+                    <h3>VCAI Trend Suite (VWAP + SuperTrend + ORB + Signals)</h3>
+                    <p>
+                        <span class="card-teaser">
+                            A planned bundle of classic trend tools rebuilt under the VCAI framework, combining VWAP
+                            structure, SuperTrend bias, opening-range levels and optional signal markers.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            Designed as a straightforward, all-in-one trend pack for traders who want reliable context
+                            without the complexity of the V-CORE engine. Ideal as a starter toolkit before moving into
+                            full regime-based systems.
+                        </span>
+                    </p>
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
+                </div>
+
+                <!-- CARD 13: VCAI RSI Divergence+ -->
+                <div class="card card-compact">
+                    <div class="tool-thumb">
+                        <img src="assets/vcai-rsi-div-plus.jpg" alt="VCAI RSI Divergence+ indicator screenshot">
+                    </div>
+                    <h3>VCAI RSI Divergence+</h3>
+                    <p>
+                        <span class="card-teaser">
+                            This upgraded RSI shows momentum direction, trend regime changes, and bullish/bearish
+                            divergences with zero clutter.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            Its colour logic makes shifts obvious at a glance, while optional divergence mode highlights
+                            areas where reversals may be forming. A cleaner, sharper alternative to the standard RSI.
+                        </span>
+                    </p>
+                    <p style="margin-top:8px;display:none;">
+                        <a class="btn btn-ghost" href="#" id="tv-link-rsi-div" target="_blank" rel="noopener">
+                            View on TradingView →
+                        </a>
+                    </p>
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
+                </div>
+
+                <!-- CARD 14: VCAI Stoch RSI+ -->
+                <div class="card card-compact">
+                    <div class="tool-thumb">
+                        <img src="assets/vcai-stoch-rsi-plus.jpg" alt="VCAI Stoch RSI+ indicator screenshot">
+                    </div>
+                    <h3>VCAI Stoch RSI+</h3>
+                    <p>
+                        <span class="card-teaser">
+                            VCAI Stoch RSI+ uses V-Core colour logic and soft OB/OS shading to make momentum shifts
+                            clearer and less noisy than standard Stoch RSI.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            It highlights early trend changes, exhaustion zones, and continuation setups with optional
+                            higher-timeframe smoothing.
+                        </span>
+                    </p>
+                    <p style="margin-top:8px;display:none;">
+                        <a class="btn btn-ghost" href="#" id="tv-link-stoch-rsi" target="_blank" rel="noopener">
+                            View on TradingView →
+                        </a>
+                    </p>
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
+                </div>
+
+                <!-- CARD 15: Future VCAI tool slot -->
+                <div class="card card-compact">
+                    <div class="tool-thumb">
+                        <img src="assets/vcai-future-tool.jpg" alt="Future VCAI Tool placeholder">
+                    </div>
+                    <h3>Future VCAI Tool Slot</h3>
+                    <p>
+                        <span class="card-teaser">
+                            Reserved slot for a future VectorCoresAI indicator extending the current toolkit with
+                            additional structure or regime context.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            Details will be added once the tool is ready to be published.
+                        </span>
+                    </p>
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
+                </div>
+
+                <!-- CARD 16: Future V-CORE module slot -->
+                <div class="card card-compact">
+                    <div class="tool-thumb">
+                        <img src="assets/v-core-future-module.jpg" alt="Future V-CORE Module placeholder">
+                    </div>
+                    <h3>Future V-CORE Module Slot</h3>
+                    <p>
+                        <span class="card-teaser">
+                            Planned slot for an additional V-CORE-linked module that complements the existing trend and
+                            regime tools in the stack.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            Final specification will be confirmed closer to release.
+                        </span>
+                    </p>
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
                 </div>
             </div>
         </section>
@@ -835,9 +1193,9 @@
                 of Engine Pro and the Signal Governor when retail editions go live.
             </p>
             <p style="margin-top:8px;">
-                <a class="btn btn-ghost" href="mailto:admin@vectorcoresai.com?subject=V-CORE%20Pro%20Suite%20Early%20Access">
+                <button type="button" class="btn btn-ghost" id="early-access-open">
                     Join early access — request a Pro trial
-                </a>
+                </button>
             </p>
         </section>
 
@@ -889,7 +1247,44 @@
     </footer>
 </div>
 
+<!-- EARLY ACCESS MODAL USING FORMSUBMIT -->
+<div id="early-access-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card">
+        <button type="button" class="modal-close" aria-label="Close early access form">×</button>
+        <h3>Request V-CORE Pro early access</h3>
+        <p class="modal-sub">
+            We will not share your data with anyone.
+        </p>
+
+        <form action="https://formsubmit.co/sales@vectorcoresai.com" method="POST" class="modal-form">
+            <input type="hidden" name="_subject" value="New Inquiry - VectorCoresAI">
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_next" value="https://vectorcoresai.com/thanks.html">
+
+            <div class="modal-field">
+                <label for="ea-name">Name</label>
+                <input id="ea-name" type="text" name="name" class="modal-input" required>
+            </div>
+
+            <div class="modal-field">
+                <label for="ea-email">Email</label>
+                <input id="ea-email" type="email" name="email" class="modal-input" required>
+            </div>
+
+            <div class="modal-field">
+                <label for="ea-tv">TradingView username</label>
+                <input id="ea-tv" type="text" name="tradingview_username" class="modal-input" required>
+            </div>
+
+            <button type="submit" class="btn btn-yellow modal-submit">
+                Submit
+            </button>
+        </form>
+    </div>
+</div>
+
 <script>
+    // Year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // TradingView profile + scripts
@@ -900,7 +1295,68 @@
     document.getElementById("tv-link-free-v2").href = tvProfile;
     document.getElementById("tv-link-fusion").href = tvProfile;
     document.getElementById("tv-link-ob-lite").href = tvProfile;
+    document.getElementById("tv-link-rsi-div").href = tvProfile;
+    document.getElementById("tv-link-stoch-rsi").href = tvProfile;
     document.getElementById("tv-profile-link").href = tvProfile;
+
+    // Early access modal open/close
+    const earlyAccessOpen = document.getElementById('early-access-open');
+    const earlyAccessModal = document.getElementById('early-access-modal');
+    const earlyAccessClose = earlyAccessModal.querySelector('.modal-close');
+
+    function openEarlyAccessModal() {
+        earlyAccessModal.style.display = 'flex';
+        earlyAccessModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeEarlyAccessModal() {
+        earlyAccessModal.style.display = 'none';
+        earlyAccessModal.setAttribute('aria-hidden', 'true');
+    }
+
+    earlyAccessOpen.addEventListener('click', openEarlyAccessModal);
+    earlyAccessClose.addEventListener('click', closeEarlyAccessModal);
+
+    // Close when clicking outside the card
+    earlyAccessModal.addEventListener('click', function (e) {
+        if (e.target === earlyAccessModal) {
+            closeEarlyAccessModal();
+        }
+    });
+
+    // Read more toggles for longer card descriptions
+    const readMoreButtons = document.querySelectorAll('.btn-readmore');
+
+    readMoreButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const card = btn.closest('.card');
+            if (!card) return;
+
+            const more = card.querySelector('.card-more');
+            if (!more) return;
+
+            const isVisible = more.style.display === 'inline';
+
+            if (isVisible) {
+                more.style.display = 'none';
+                btn.textContent = 'Read more';
+            } else {
+                more.style.display = 'inline';
+                btn.textContent = 'Show less';
+            }
+        });
+    });
+
+    // Show more / hide extra tools toggle
+    const extraTools = document.getElementById('extra-tools');
+    const toolsToggleBtn = document.getElementById('tools-toggle-btn');
+    let toolsExpanded = false;
+
+    toolsToggleBtn.addEventListener('click', function () {
+        toolsExpanded = !toolsExpanded;
+        extraTools.style.display = toolsExpanded ? 'grid' : 'none';
+        toolsToggleBtn.textContent = toolsExpanded ? 'Hide additional tools' : 'Show more tools';
+    });
 </script>
 </body>
 </html>
