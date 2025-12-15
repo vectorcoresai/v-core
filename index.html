@@ -317,20 +317,23 @@
             gap: 18px;
         }
 
+        /* UPDATED: bigger box + image fits inside */
         .hero-extra {
             background: #020617;
             border-radius: var(--radius-xl);
             border: 1px solid var(--accent-alt);
             padding: 10px;
-            height: 220px;
+            height: 280px; /* was 220px */
             overflow: hidden;
         }
 
+        /* UPDATED: contain so it fits */
         .hero-extra-img {
             width: 100%;
             height: 100%;
             border-radius: 14px;
-            object-fit: cover;
+            object-fit: contain; /* was cover */
+            object-position: center;
             display: block;
         }
 
@@ -410,6 +413,7 @@
             color: var(--accent-alt);
         }
 
+        /* RESTORED (unchanged) */
         .links-list li.tv::before { content: "📈"; }
         .links-list li.x::before { content: "✖️"; font-size: 10px; top: 4px; }
         .links-list li.ig::before { content: "📸"; }
@@ -659,6 +663,7 @@
 </div>
 
 <header class="site-header">
+    <!-- UPDATED: bigger banner box + image fits -->
     <div style="margin: 18px 0 20px; display: flex; justify-content: center;">
         <div
             style="
@@ -666,8 +671,8 @@
                 border-radius: 24px;
                 border: 2px solid #4f46e5;
                 width: 100%;
-                max-width: 1100px;
-                height: 260px;
+                max-width: 1120px;
+                height: 320px;
                 overflow: hidden;
                 display: flex;
                 align-items: center;
@@ -680,7 +685,8 @@
                 style="
                     width: 100%;
                     height: 100%;
-                    object-fit: cover;
+                    object-fit: contain;
+                    object-position: center;
                     display: block;
                 "
             >
@@ -716,6 +722,7 @@
                 <a class="btn btn-primary" href="#" id="tv-link-main" target="_blank" rel="noopener">
                     View tools on TradingView →
                 </a>
+                <!-- RESTORED (unchanged) -->
                 <a class="btn btn-ghost" href="https://x.com/Vectorcoresai" target="_blank" rel="noopener">
                     Follow V-CORE on X
                 </a>
@@ -760,6 +767,7 @@
                 </div>
             </div>
 
+            <!-- UPDATED: bigger + fit -->
             <div class="hero-extra">
                 <img src="assets/vectorcoresai-image1.jpg"
                      alt="VectorCoresAI additional visual"
@@ -1017,7 +1025,7 @@
                     </button>
                 </div>
 
-                <!-- CARD 12: VCAI Trend Suite (VWAP + SuperTrend + ORB + Signals) -->
+                <!-- CARD 12: VCAI Trend Suite -->
                 <div class="card card-compact">
                     <div class="tool-thumb">
                         <img src="assets/vcai-trend-suite.jpg" alt="VCAI Trend Suite placeholder">
@@ -1091,7 +1099,7 @@
                     </button>
                 </div>
 
-                <!-- CARD 15: Future VCAI tool slot -->
+                <!-- CARD 15 -->
                 <div class="card card-compact">
                     <div class="tool-thumb">
                         <img src="assets/vcai-future-tool.jpg" alt="Future VCAI Tool placeholder">
@@ -1111,7 +1119,7 @@
                     </button>
                 </div>
 
-                <!-- CARD 16: Future V-CORE module slot -->
+                <!-- CARD 16 -->
                 <div class="card card-compact">
                     <div class="tool-thumb">
                         <img src="assets/v-core-future-module.jpg" alt="Future V-CORE Module placeholder">
@@ -1222,7 +1230,7 @@
             </p>
         </section>
 
-        <!-- CONTACT SECTION -->
+        <!-- CONTACT SECTION (RESTORED UNCHANGED) -->
         <section class="section" id="contact">
             <h2>Contact &amp; Links</h2>
             <p>
