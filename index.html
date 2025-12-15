@@ -415,8 +415,6 @@
 
         /* RESTORED (unchanged) */
         .links-list li.tv::before { content: "📈"; }
-        .links-list li.x::before { content: "✖️"; font-size: 10px; top: 4px; }
-        .links-list li.ig::before { content: "📸"; }
         .links-list li.email::before { content: "📧"; }
 
         .links-list li a {
@@ -722,10 +720,6 @@
                 <a class="btn btn-primary" href="#" id="tv-link-main" target="_blank" rel="noopener">
                     View tools on TradingView →
                 </a>
-                <!-- RESTORED (unchanged) -->
-                <a class="btn btn-ghost" href="https://x.com/Vectorcoresai" target="_blank" rel="noopener">
-                    Follow V-CORE on X
-                </a>
             </div>
             <p class="hero-footnote">
                 Free indicators focus on higher-timeframe clarity. Pro editions extend the engine for more instruments,
@@ -788,27 +782,7 @@
 
             <!-- FIRST ROW: ALWAYS VISIBLE (4 CARDS) -->
             <div class="tools-grid">
-                <!-- CARD 1: SMA Matrix Lite -->
-                <div class="card">
-                    <div class="tool-thumb">
-                        <img src="assets/sma.jpg" alt="V-CORE SMA Matrix Lite screenshot">
-                    </div>
-                    <h3>V-CORE SMA Matrix Lite</h3>
-                    <p>
-                        A clean 5-SMA structure tool (21, 50, 80, 100, 200). It highlights direction, compression and
-                        reclaim behaviour using widely used moving averages.
-                    </p>
-                    <p class="tagline">
-                        Open-source Lite edition – useful as a structural map alongside any trend or momentum system.
-                    </p>
-                    <p style="margin-top:8px;display:none;">
-                        <a class="btn btn-ghost" href="#" id="tv-link-sma-lite" target="_blank" rel="noopener">
-                            View on TradingView →
-                        </a>
-                    </p>
-                </div>
-
-                <!-- CARD 2: V-CORE Engine Free v1 -->
+                <!-- CARD 1 (was 2): V-CORE Engine Free v1 -->
                 <div class="card">
                     <div class="tool-thumb">
                         <img src="assets/v1.jpg" alt="V-CORE Engine Free v1 screenshot">
@@ -828,7 +802,7 @@
                     </p>
                 </div>
 
-                <!-- CARD 3: V-CORE Engine Free v2 -->
+                <!-- CARD 2 (was 3): V-CORE Engine Free v2 -->
                 <div class="card">
                     <div class="tool-thumb">
                         <img src="assets/v2.jpg" alt="V-CORE Engine Free v2 screenshot">
@@ -845,7 +819,89 @@
                     </p>
                 </div>
 
-                <!-- CARD 4: SMA + Bollinger Fusion -->
+                <!-- CARD 3 (was 13): VCAI RSI Divergence+ -->
+                <div class="card card-compact">
+                    <div class="tool-thumb">
+                        <img src="assets/vcai-rsi-div-plus.jpg" alt="VCAI RSI Divergence+ indicator screenshot">
+                    </div>
+                    <h3>VCAI RSI Divergence+</h3>
+                    <p>
+                        <span class="card-teaser">
+                            This upgraded RSI shows momentum direction, trend regime changes, and bullish/bearish
+                            divergences with zero clutter.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            Its colour logic makes shifts obvious at a glance, while optional divergence mode highlights
+                            areas where reversals may be forming. A cleaner, sharper alternative to the standard RSI.
+                        </span>
+                    </p>
+                    <p style="margin-top:8px;display:none;">
+                        <a class="btn btn-ghost" href="#" id="tv-link-rsi-div" target="_blank" rel="noopener">
+                            View on TradingView →
+                        </a>
+                    </p>
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
+                </div>
+
+                <!-- CARD 4 (was 14): VCAI Stoch RSI+ -->
+                <div class="card card-compact">
+                    <div class="tool-thumb">
+                        <img src="assets/vcai-stoch-rsi-plus.jpg" alt="VCAI Stoch RSI+ indicator screenshot">
+                    </div>
+                    <h3>VCAI Stoch RSI+</h3>
+                    <p>
+                        <span class="card-teaser">
+                            VCAI Stoch RSI+ uses V-Core colour logic and soft OB/OS shading to make momentum shifts
+                            clearer and less noisy than standard Stoch RSI.
+                        </span>
+                        <span class="card-more" style="display:none;">
+                            It highlights early trend changes, exhaustion zones, and continuation setups with optional
+                            higher-timeframe smoothing.
+                        </span>
+                    </p>
+                    <p style="margin-top:8px;display:none;">
+                        <a class="btn btn-ghost" href="#" id="tv-link-stoch-rsi" target="_blank" rel="noopener">
+                            View on TradingView →
+                        </a>
+                    </p>
+                    <button type="button" class="btn btn-ghost btn-readmore">
+                        Read more
+                    </button>
+                </div>
+            </div>
+
+            <!-- SHOW MORE BUTTON -->
+            <p style="margin-top:18px;">
+                <button type="button" class="btn btn-ghost" id="tools-toggle-btn">
+                    Show more tools
+                </button>
+            </p>
+
+            <!-- EXTRA ROWS: HIDDEN UNTIL TOGGLED (12 CARDS) -->
+            <div class="tools-grid tools-grid-extra" id="extra-tools" style="display:none;">
+                <!-- (was 1): SMA Matrix Lite -->
+                <div class="card">
+                    <div class="tool-thumb">
+                        <img src="assets/sma.jpg" alt="V-CORE SMA Matrix Lite screenshot">
+                    </div>
+                    <h3>V-CORE SMA Matrix Lite</h3>
+                    <p>
+                        A clean 5-SMA structure tool (21, 50, 80, 100, 200). It highlights direction, compression and
+                        reclaim behaviour using widely used moving averages.
+                    </p>
+                    <p class="tagline">
+                        Open-source Lite edition – useful as a structural map alongside any trend or momentum system.
+                    </p>
+                    <p style="margin-top:8px;display:none;">
+                        <a class="btn btn-ghost" href="#" id="tv-link-sma-lite" target="_blank" rel="noopener">
+                            View on TradingView →
+                        </a>
+                    </p>
+                </div>
+
+                <!-- (was 4): SMA + Bollinger Fusion -->
                 <div class="card">
                     <div class="tool-thumb">
                         <img src="assets/sma-bb-fusion.jpg" alt="VectorCoresAI SMA + Bollinger Fusion v1 screenshot">
@@ -864,18 +920,8 @@
                         </a>
                     </p>
                 </div>
-            </div>
 
-            <!-- SHOW MORE BUTTON -->
-            <p style="margin-top:18px;">
-                <button type="button" class="btn btn-ghost" id="tools-toggle-btn">
-                    Show more tools
-                </button>
-            </p>
-
-            <!-- EXTRA ROWS: HIDDEN UNTIL TOGGLED (CARDS 5–16) -->
-            <div class="tools-grid tools-grid-extra" id="extra-tools" style="display:none;">
-                <!-- CARD 5: V-CORE OB Lite -->
+                <!-- (was 5): V-CORE OB Lite -->
                 <div class="card">
                     <div class="tool-thumb">
                         <img src="assets/v-core-ob-lite.jpg" alt="V-CORE OB Lite placeholder">
@@ -902,7 +948,7 @@
                     </button>
                 </div>
 
-                <!-- CARD 6: VCAI Volume Lite -->
+                <!-- (was 6): VCAI Volume Lite -->
                 <div class="card">
                     <div class="tool-thumb">
                         <img src="assets/vcai-volume-lite.jpg" alt="VCAI Volume Lite indicator screenshot">
@@ -922,7 +968,7 @@
                     </button>
                 </div>
 
-                <!-- CARD 7: VCAI BOS-Zone PRO -->
+                <!-- (was 7): VCAI BOS-Zone PRO -->
                 <div class="card">
                     <div class="tool-thumb">
                         <img src="assets/vcai-bos-zone-pro.jpg" alt="VCAI BOS-Zone PRO indicator screenshot">
@@ -943,7 +989,7 @@
                     </button>
                 </div>
 
-                <!-- CARD 8: VCAI Volume & Liquidity Map Lite -->
+                <!-- (was 8): VCAI Volume & Liquidity Map Lite -->
                 <div class="card">
                     <div class="tool-thumb">
                         <img src="assets/vcai-volume-liquidity-lite.jpg" alt="VCAI Volume &amp; Liquidity Map Lite indicator screenshot">
@@ -964,7 +1010,7 @@
                     </button>
                 </div>
 
-                <!-- CARD 9: VCAI MACD Lite -->
+                <!-- (was 9): VCAI MACD Lite -->
                 <div class="card card-compact">
                     <div class="tool-thumb">
                         <img src="assets/vcai-macd-lite.jpg" alt="VCAI MACD Lite indicator screenshot">
@@ -983,7 +1029,7 @@
                     </button>
                 </div>
 
-                <!-- CARD 10: V-CORE Engine Pro -->
+                <!-- (was 10): V-CORE Engine Pro (moved to end group) -->
                 <div class="card card-compact">
                     <div class="tool-thumb">
                         <img src="assets/v-core-engine-pro.jpg" alt="V-CORE Engine Pro placeholder">
@@ -1004,7 +1050,7 @@
                     </button>
                 </div>
 
-                <!-- CARD 11: V-CORE Pro Signal Governor -->
+                <!-- (was 11): V-CORE Pro Signal Governor (moved to end group) -->
                 <div class="card card-compact">
                     <div class="tool-thumb">
                         <img src="assets/v-core-signal-governor.jpg" alt="V-CORE Pro Signal Governor placeholder">
@@ -1025,12 +1071,12 @@
                     </button>
                 </div>
 
-                <!-- CARD 12: VCAI Trend Suite -->
+                <!-- (was 12): VCAI Trend Suite (moved to end group + title shortened) -->
                 <div class="card card-compact">
                     <div class="tool-thumb">
                         <img src="assets/vcai-trend-suite.jpg" alt="VCAI Trend Suite placeholder">
                     </div>
-                    <h3>VCAI Trend Suite (VWAP + SuperTrend + ORB + Signals)</h3>
+                    <h3>VCAI Trend Suite</h3>
                     <p>
                         <span class="card-teaser">
                             A planned bundle of classic trend tools rebuilt under the VCAI framework, combining VWAP
@@ -1047,59 +1093,7 @@
                     </button>
                 </div>
 
-                <!-- CARD 13: VCAI RSI Divergence+ -->
-                <div class="card card-compact">
-                    <div class="tool-thumb">
-                        <img src="assets/vcai-rsi-div-plus.jpg" alt="VCAI RSI Divergence+ indicator screenshot">
-                    </div>
-                    <h3>VCAI RSI Divergence+</h3>
-                    <p>
-                        <span class="card-teaser">
-                            This upgraded RSI shows momentum direction, trend regime changes, and bullish/bearish
-                            divergences with zero clutter.
-                        </span>
-                        <span class="card-more" style="display:none;">
-                            Its colour logic makes shifts obvious at a glance, while optional divergence mode highlights
-                            areas where reversals may be forming. A cleaner, sharper alternative to the standard RSI.
-                        </span>
-                    </p>
-                    <p style="margin-top:8px;display:none;">
-                        <a class="btn btn-ghost" href="#" id="tv-link-rsi-div" target="_blank" rel="noopener">
-                            View on TradingView →
-                        </a>
-                    </p>
-                    <button type="button" class="btn btn-ghost btn-readmore">
-                        Read more
-                    </button>
-                </div>
-
-                <!-- CARD 14: VCAI Stoch RSI+ -->
-                <div class="card card-compact">
-                    <div class="tool-thumb">
-                        <img src="assets/vcai-stoch-rsi-plus.jpg" alt="VCAI Stoch RSI+ indicator screenshot">
-                    </div>
-                    <h3>VCAI Stoch RSI+</h3>
-                    <p>
-                        <span class="card-teaser">
-                            VCAI Stoch RSI+ uses V-Core colour logic and soft OB/OS shading to make momentum shifts
-                            clearer and less noisy than standard Stoch RSI.
-                        </span>
-                        <span class="card-more" style="display:none;">
-                            It highlights early trend changes, exhaustion zones, and continuation setups with optional
-                            higher-timeframe smoothing.
-                        </span>
-                    </p>
-                    <p style="margin-top:8px;display:none;">
-                        <a class="btn btn-ghost" href="#" id="tv-link-stoch-rsi" target="_blank" rel="noopener">
-                            View on TradingView →
-                        </a>
-                    </p>
-                    <button type="button" class="btn btn-ghost btn-readmore">
-                        Read more
-                    </button>
-                </div>
-
-                <!-- CARD 15 -->
+                <!-- (was 15): Future VCAI Tool Slot (moved to end group) -->
                 <div class="card card-compact">
                     <div class="tool-thumb">
                         <img src="assets/vcai-future-tool.jpg" alt="Future VCAI Tool placeholder">
@@ -1119,7 +1113,7 @@
                     </button>
                 </div>
 
-                <!-- CARD 16 -->
+                <!-- (was 16): Future V-CORE Module Slot (moved to end group) -->
                 <div class="card card-compact">
                     <div class="tool-thumb">
                         <img src="assets/v-core-future-module.jpg" alt="Future V-CORE Module placeholder">
@@ -1238,8 +1232,6 @@
             </p>
             <ul class="links-list">
                 <li class="tv"><strong>TradingView:</strong> <a href="#" id="tv-profile-link" target="_blank" rel="noopener">Vectorcoresai on TradingView</a></li>
-                <li class="x"><strong>X (Twitter):</strong> <a href="https://x.com/Vectorcoresai" target="_blank" rel="noopener">@Vectorcoresai</a></li>
-                <li class="ig"><strong>Instagram:</strong> <a href="https://instagram.com/Vectorcoresai" target="_blank" rel="noopener">@Vectorcoresai</a></li>
                 <li class="email"><strong>Email:</strong> <a href="mailto:admin@vectorcoresai.com">admin@vectorcoresai.com</a></li>
             </ul>
             <p style="margin-top:8px;font-size:13px;color:var(--text-muted);">
