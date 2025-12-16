@@ -490,6 +490,25 @@
             display: block;
         }
 
+        /* ---------- NEW: PRO SECTION IMAGE BOXES (BIGGER + FULL FIT) ---------- */
+        .pro-thumb {
+            width: 100%;
+            height: 260px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(51, 65, 85, 0.9);
+            background: radial-gradient(circle at top, #111827, #020617);
+            margin-bottom: 10px;
+        }
+
+        .pro-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+        }
+
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -1014,12 +1033,11 @@
                 <div class="card">
                     <h3>V-CORE Engine Pro</h3>
 
-                    <!-- UPDATED: uses your Engine Pro image (save it as assets/v-core-engine-pro.jpg) -->
-                    <div class="tool-thumb" style="height:180px;">
+                    <!-- UPDATED: bigger + full fit -->
+                    <div class="pro-thumb">
                         <img src="assets/v-core-engine-pro.jpg" alt="V-CORE Engine Pro visual">
                     </div>
 
-                    <!-- UPDATED: Engine Pro+ description -->
                     <div class="card-more" style="display:none; margin-top:10px;">
                         <p><strong>V-CORE Engine Pro+</strong></p>
 
@@ -1096,7 +1114,8 @@
                 <div class="card">
                     <h3>The Signal Governor (“The Gov”)</h3>
 
-                    <div class="tool-thumb" style="height:180px;">
+                    <!-- UPDATED: bigger + full fit -->
+                    <div class="pro-thumb">
                         <img src="assets/signal-governor.jpg" alt="Signal Governor visual">
                     </div>
 
