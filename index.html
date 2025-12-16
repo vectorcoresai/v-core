@@ -70,19 +70,6 @@
             padding: 16px 16px 24px;
         }
 
-        .banner-row {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 18px;
-        }
-
-        .banner-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: var(--radius-xl);
-        }
-
         .nav-row {
             display: flex;
             justify-content: flex-end;
@@ -317,34 +304,29 @@
             gap: 18px;
         }
 
-        /* UPDATED: bigger box + image fits inside */
         .hero-extra {
             background: #020617;
             border-radius: var(--radius-xl);
             border: 1px solid var(--accent-alt);
             padding: 10px;
-            height: 280px; /* was 220px */
+            height: 280px;
             overflow: hidden;
         }
 
-        /* UPDATED: contain so it fits */
         .hero-extra-img {
             width: 100%;
             height: 100%;
             border-radius: 14px;
-            object-fit: contain; /* was cover */
+            object-fit: contain;
             object-position: center;
             display: block;
         }
 
         @media (max-width: 900px) {
-            .hero-side {
-                order: 2;
-            }
+            .hero-side { order: 2; }
         }
 
         /* ---------- SECTIONS ---------- */
-
         main {
             display: flex;
             flex-direction: column;
@@ -413,7 +395,10 @@
             color: var(--accent-alt);
         }
 
+        /* RESTORED icons (Contact only is fine) */
         .links-list li.tv::before { content: "📈"; }
+        .links-list li.x::before { content: "✖️"; font-size: 10px; top: 4px; }
+        .links-list li.ig::before { content: "📸"; }
         .links-list li.email::before { content: "📧"; }
 
         .links-list li a {
@@ -1136,6 +1121,7 @@
                     </button>
                 </div>
             </div>
+
             <p style="margin-top:10px;font-size:13px;color:var(--text-muted);">
                 The V-CORE Pro suite is in active development. Early users on the access list will receive a free trial
                 of Engine Pro and the Signal Governor when retail editions go live.
@@ -1169,6 +1155,7 @@
             </p>
         </section>
 
+        <!-- CONTACT SECTION (UPDATED: X + IG restored) -->
         <section class="section" id="contact">
             <h2>Contact &amp; Links</h2>
             <p>
@@ -1176,6 +1163,8 @@
             </p>
             <ul class="links-list">
                 <li class="tv"><strong>TradingView:</strong> <a href="#" id="tv-profile-link" target="_blank" rel="noopener">Vectorcoresai on TradingView</a></li>
+                <li class="x"><strong>X (Twitter):</strong> <a href="https://x.com/Vectorcoresai" target="_blank" rel="noopener">@Vectorcoresai</a></li>
+                <li class="ig"><strong>Instagram:</strong> <a href="https://instagram.com/Vectorcoresai" target="_blank" rel="noopener">@Vectorcoresai</a></li>
                 <li class="email"><strong>Email:</strong> <a href="mailto:admin@vectorcoresai.com">admin@vectorcoresai.com</a></li>
             </ul>
             <p style="margin-top:8px;font-size:13px;color:var(--text-muted);">
@@ -1191,6 +1180,7 @@
     </footer>
 </div>
 
+<!-- EARLY ACCESS MODAL USING FORMSUBMIT -->
 <div id="early-access-modal" class="modal-overlay" aria-hidden="true">
     <div class="modal-card">
         <button type="button" class="modal-close" aria-label="Close early access form">×</button>
