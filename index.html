@@ -32,7 +32,6 @@
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            /* LIGHTER MIDDLE GRADIENT TONE */
             background-image: linear-gradient(
                 180deg,
                 #03030f 0%,
@@ -489,18 +488,6 @@
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-
-        .tool-thumb-placeholder {
-            width: 100%;
-            height: 130px;
-            border-radius: 14px;
-            background: radial-gradient(circle at top, #111827, #020617);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            padding: 10px;
         }
 
         .modal-overlay {
@@ -1000,44 +987,6 @@
                         Read more
                     </button>
                 </div>
-
-                <div class="card card-compact">
-                    <div class="tool-thumb">
-                        <img src="assets/vcai-future-tool.jpg" alt="Future VCAI Tool placeholder">
-                    </div>
-                    <h3>Future VCAI Tool Slot</h3>
-                    <p>
-                        <span class="card-teaser">
-                            Reserved slot for a future VectorCoresAI indicator extending the current toolkit with
-                            additional structure or regime context.
-                        </span>
-                        <span class="card-more" style="display:none;">
-                            Details will be added once the tool is ready to be published.
-                        </span>
-                    </p>
-                    <button type="button" class="btn btn-ghost btn-readmore">
-                        Read more
-                    </button>
-                </div>
-
-                <div class="card card-compact">
-                    <div class="tool-thumb">
-                        <img src="assets/v-core-future-module.jpg" alt="Future V-CORE Module placeholder">
-                    </div>
-                    <h3>Future V-CORE Module Slot</h3>
-                    <p>
-                        <span class="card-teaser">
-                            Planned slot for an additional V-CORE-linked module that complements the existing trend and
-                            regime tools in the stack.
-                        </span>
-                        <span class="card-more" style="display:none;">
-                            Final specification will be confirmed closer to release.
-                        </span>
-                    </p>
-                    <button type="button" class="btn btn-ghost btn-readmore">
-                        Read more
-                    </button>
-                </div>
             </div>
         </section>
 
@@ -1060,75 +1009,121 @@
 
         <section class="section" id="pro">
             <h2>V-CORE Pro Engine &amp; Signal Governor</h2>
+
             <div class="section-grid">
                 <div class="card">
                     <h3>V-CORE Engine Pro</h3>
 
-                    <!-- UPDATED: icon-style placeholder (no text) -->
-                    <div class="tool-thumb-placeholder" style="height:180px;" aria-label="Image placeholder">
-                        <span style="color: var(--text-muted); display: inline-flex;">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                                <path d="M21 15l-5-5L5 21"></path>
-                            </svg>
-                        </span>
+                    <!-- UPDATED: uses your Engine Pro image (save it as assets/v-core-engine-pro.jpg) -->
+                    <div class="tool-thumb" style="height:180px;">
+                        <img src="assets/v-core-engine-pro.jpg" alt="V-CORE Engine Pro visual">
                     </div>
 
+                    <!-- UPDATED: Engine Pro+ description -->
                     <div class="card-more" style="display:none; margin-top:10px;">
+                        <p><strong>V-CORE Engine Pro+</strong></p>
+
                         <p>
-                            The professional engine used internally and with early testers. It is designed to read market
-                            structure in a consistent, repeatable way across crypto, FX, indices and stocks.
+                            V-CORE Engine Pro+ is the professional market-state engine at the core of the VectorCoresAI ecosystem.
                         </p>
+
+                        <p>
+                            It has been developed, tested, and refined through extensive internal use and early access testing, with one goal:
+                            to read market structure in a consistent, repeatable way across all major asset classes and timeframes.
+                        </p>
+
+                        <p><strong>What makes it different</strong></p>
+
+                        <p>
+                            Unlike traditional indicators that react to price in isolation, V-CORE Engine Pro+ models context — how structure forms,
+                            shifts, compresses, and resolves over time.
+                        </p>
+
+                        <p>
+                            The engine operates with multiple internal regime states beyond simple bull / bear / neutral, allowing it to adapt to changing
+                            conditions rather than forcing markets into binary labels.
+                        </p>
+
+                        <p><strong>Asset-specific tuning</strong></p>
+
+                        <p>Behaviour is tuned per market:</p>
                         <ul>
-                            <li>Additional internal regime states beyond simple bull / bear / neutral.</li>
-                            <li>Behaviour on stocks and indices is tuned for cleaner rotations and less visual noise.</li>
-                            <li>Forex behaviour focuses on how directional moves build, compress and release over time.</li>
+                            <li>Stocks &amp; indices focus on cleaner rotations, regime persistence, and reduced visual noise.</li>
+                            <li>Forex is optimised to track how directional moves build, stall, compress, and release.</li>
+                            <li>Crypto adapts to higher volatility environments while maintaining structural consistency.</li>
                         </ul>
+
+                        <p><strong>Full market &amp; timeframe access</strong></p>
+
+                        <p>V-CORE Engine Pro+ unlocks:</p>
+                        <ul>
+                            <li>All major markets — crypto, FX, indices, stocks</li>
+                            <li>All timeframes — from 1-second execution views to multi-year structure</li>
+                            <li>The complete Pro regime model not available in the free editions</li>
+                        </ul>
+
+                        <p>
+                            This allows the same structural logic to be used for scalping, swing trading, and long-term positioning — without switching tools.
+                        </p>
+
+                        <p><strong>What it is (and isn’t)</strong></p>
+
+                        <p>
+                            V-CORE Engine Pro+ does not promise profitable trades. It does something more important.
+                        </p>
+
+                        <p>
+                            It provides a stable, objective bias map — so entries, exits, and management decisions feel deliberate rather than reactive.
+                        </p>
+
+                        <p>
+                            Users consistently describe the engine as reducing second-guessing, filtering noise, and making market behaviour easier to interpret under pressure.
+                        </p>
+
+                        <p>
+                            Comparable systems exist — and they were studied closely during development.
+                            V-CORE Engine Pro+ was built to go further: broader market coverage, deeper regime logic, and tighter behavioural consistency across assets.
+                        </p>
+
                         <p class="tagline">
-                            Engine Pro does not promise profitable trades. It aims to provide a stable bias map so timing and
-                            management decisions feel more deliberate.
+                            This is not a collection of indicators. It is a unified market-state engine.
                         </p>
                     </div>
 
-                    <button type="button" class="btn btn-ghost btn-readmore">
-                        Read more
-                    </button>
+                    <button type="button" class="btn btn-ghost btn-readmore">Read more</button>
                 </div>
 
                 <div class="card">
                     <h3>The Signal Governor (“The Gov”)</h3>
 
-                    <!-- UPDATED: icon-style placeholder (no text) -->
-                    <div class="tool-thumb-placeholder" style="height:180px;" aria-label="Image placeholder">
-                        <span style="color: var(--text-muted); display: inline-flex;">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                                <path d="M21 15l-5-5L5 21"></path>
-                            </svg>
-                        </span>
+                    <div class="tool-thumb" style="height:180px;">
+                        <img src="assets/signal-governor.jpg" alt="Signal Governor visual">
                     </div>
 
                     <div class="card-more" style="display:none; margin-top:10px;">
                         <p>
-                            The Gov sits on top of the engine as a classification and filtering layer. It helps highlight
-                            sections of market behaviour that are more or less favourable for trade ideas.
+                            Signal Governor is a real-time trading signal service designed to deliver buy and sell alerts directly to you,
+                            across multiple markets.
                         </p>
-                        <ul>
-                            <li>Tags opportunities into categories such as stronger, standard or lower-quality zones.</li>
-                            <li>Flags environments that often align with thin liquidity or unstable volatility.</li>
-                            <li>Built to sit alongside manual workflows, bots or external execution systems.</li>
-                        </ul>
+                        <p>
+                            Covering crypto, forex, commodities, stocks and indices, the Governor monitors a wide universe of instruments
+                            and sends frequent signals as conditions develop — allowing users to act, ignore, or manage risk in their own way.
+                        </p>
+                        <p>
+                            The service is built for beginners looking for clear directional alerts, as well as experienced traders who want
+                            a steady flow of ideas to layer into their own strategies.
+                        </p>
+                        <p>
+                            Signals are delivered straight to you via supported alert channels, with no requirement to use any specific platform,
+                            indicator, or execution method.
+                        </p>
                         <p class="tagline">
-                            Early internal feedback describes the Gov as a way to separate ideas that deserve focus from
-                            those that are better treated as background noise.
+                            Signal Governor is a paid service and is currently in development. Full details on delivery methods, pricing, and
+                            supported markets will be released closer to launch.
                         </p>
                     </div>
 
-                    <button type="button" class="btn btn-ghost btn-readmore">
-                        Read more
-                    </button>
+                    <button type="button" class="btn btn-ghost btn-readmore">Read more</button>
                 </div>
             </div>
 
@@ -1136,6 +1131,7 @@
                 The V-CORE Pro suite is in active development. Early users on the access list will receive a free trial
                 of Engine Pro and the Signal Governor when retail editions go live.
             </p>
+
             <p style="margin-top:8px;">
                 <button type="button" class="btn btn-yellow" id="early-access-open">
                     Join early access — request a Pro trial
@@ -1147,12 +1143,10 @@
             <h2>PrimeXBT – Recommended Exchange</h2>
             <p>
                 For users who want an exchange to test ideas and study market behaviour, PrimeXBT is a recommended
-                partner venue. It offers multi-asset access and charting suitable for working with higher-timeframe
-                concepts like V-CORE regimes.
+                partner venue.
             </p>
             <p>
-                You can support the project by signing up through the referral link below. Some regions may see
-                promotional bonuses or discounts depending on PrimeXBT’s own campaigns.
+                Some regions may see promotional bonuses or discounts depending on PrimeXBT’s own campaigns.
             </p>
             <p style="margin-top:8px;">
                 <a class="btn btn-yellow" href="https://ref.primexbt.direct/223928" target="_blank" rel="noopener">
@@ -1226,10 +1220,8 @@
 </div>
 
 <script>
-    // Year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // TradingView profile + scripts
     var tvProfile = "https://www.tradingview.com/u/Vectorcoresai/#published-scripts";
     document.getElementById("tv-link-main").href = tvProfile;
     document.getElementById("tv-link-free-v1").href = tvProfile;
@@ -1241,7 +1233,6 @@
     document.getElementById("tv-link-stoch-rsi").href = tvProfile;
     document.getElementById("tv-profile-link").href = tvProfile;
 
-    // Early access modal open/close
     const earlyAccessOpen = document.getElementById('early-access-open');
     const earlyAccessOpenHero = document.getElementById('early-access-open-hero');
     const earlyAccessModal = document.getElementById('early-access-modal');
@@ -1258,21 +1249,14 @@
     }
 
     earlyAccessOpen.addEventListener('click', openEarlyAccessModal);
-    if (earlyAccessOpenHero) {
-        earlyAccessOpenHero.addEventListener('click', openEarlyAccessModal);
-    }
+    if (earlyAccessOpenHero) earlyAccessOpenHero.addEventListener('click', openEarlyAccessModal);
     earlyAccessClose.addEventListener('click', closeEarlyAccessModal);
 
-    // Close when clicking outside the card
     earlyAccessModal.addEventListener('click', function (e) {
-        if (e.target === earlyAccessModal) {
-            closeEarlyAccessModal();
-        }
+        if (e.target === earlyAccessModal) closeEarlyAccessModal();
     });
 
-    // Read more toggles for longer card descriptions (supports span or div)
     const readMoreButtons = document.querySelectorAll('.btn-readmore');
-
     readMoreButtons.forEach(function (btn) {
         btn.addEventListener('click', function () {
             const card = btn.closest('.card');
@@ -1294,7 +1278,6 @@
         });
     });
 
-    // Show more / hide extra tools toggle
     const extraTools = document.getElementById('extra-tools');
     const toolsToggleBtn = document.getElementById('tools-toggle-btn');
     let toolsExpanded = false;
