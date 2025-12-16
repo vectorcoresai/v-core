@@ -413,7 +413,6 @@
             color: var(--accent-alt);
         }
 
-        /* RESTORED (unchanged) */
         .links-list li.tv::before { content: "📈"; }
         .links-list li.email::before { content: "📧"; }
 
@@ -602,22 +601,6 @@
             border-color: var(--accent-alt);
         }
 
-        .modal-textarea {
-            background: rgba(15, 23, 42, 0.9);
-            border-radius: 14px;
-            border: 1px solid rgba(51, 65, 85, 0.9);
-            padding: 8px 12px;
-            font-size: 13px;
-            color: var(--text-main);
-            outline: none;
-            min-height: 80px;
-            resize: vertical;
-        }
-
-        .modal-textarea:focus {
-            border-color: var(--accent-alt);
-        }
-
         .modal-submit {
             margin-top: 6px;
             width: 100%;
@@ -661,7 +644,6 @@
 </div>
 
 <header class="site-header">
-    <!-- UPDATED: bigger banner box + image fits -->
     <div style="margin: 18px 0 20px; display: flex; justify-content: center;">
         <div
             style="
@@ -703,7 +685,6 @@
 </header>
 
 <div class="page">
-    <!-- HERO -->
     <section class="hero">
         <div>
             <h1 class="hero-title">AI-assisted market analysis tools for clearer trading decisions.</h1>
@@ -716,11 +697,16 @@
                 <span class="badge">Trend-state visualisation</span>
                 <span class="badge">Crypto, FX, indices &amp; stocks</span>
             </div>
+
             <div class="hero-actions">
                 <a class="btn btn-primary" href="#" id="tv-link-main" target="_blank" rel="noopener">
                     View tools on TradingView →
                 </a>
+                <button type="button" class="btn btn-yellow" id="early-access-open-hero">
+                    Join early access — request a Pro trial
+                </button>
             </div>
+
             <p class="hero-footnote">
                 Free indicators focus on higher-timeframe clarity. Pro editions extend the engine for more instruments,
                 more conditions and more flexible workflows.
@@ -761,7 +747,6 @@
                 </div>
             </div>
 
-            <!-- UPDATED: bigger + fit -->
             <div class="hero-extra">
                 <img src="assets/vectorcoresai-image1.jpg"
                      alt="VectorCoresAI additional visual"
@@ -771,7 +756,6 @@
     </section>
 
     <main>
-        <!-- FREE TOOLS -->
         <section class="section" id="free">
             <h2>Free tools on TradingView</h2>
             <p>
@@ -780,7 +764,6 @@
                 structure so traders can build their own approaches on top.
             </p>
 
-            <!-- FIRST ROW: ALWAYS VISIBLE (4 CARDS) -->
             <div class="tools-grid">
                 <div class="card">
                     <div class="tool-thumb">
@@ -868,14 +851,12 @@
                 </div>
             </div>
 
-            <!-- SHOW MORE BUTTON -->
             <p style="margin-top:18px;">
                 <button type="button" class="btn btn-ghost" id="tools-toggle-btn">
                     Show more tools
                 </button>
             </p>
 
-            <!-- EXTRA ROWS: HIDDEN UNTIL TOGGLED (Engine Pro + Signal Governor removed) -->
             <div class="tools-grid tools-grid-extra" id="extra-tools" style="display:none;">
                 <div class="card">
                     <div class="tool-thumb">
@@ -1079,7 +1060,6 @@
             </div>
         </section>
 
-        <!-- V-CORE EXPLANATION -->
         <section class="section" id="vcore">
             <h2>What is V-CORE?</h2>
             <p>
@@ -1097,36 +1077,29 @@
             </p>
         </section>
 
-        <!-- PRO SECTION -->
         <section class="section" id="pro">
             <h2>V-CORE Pro Engine &amp; Signal Governor</h2>
             <div class="section-grid">
                 <div class="card">
                     <h3>V-CORE Engine Pro</h3>
-                    <p>
-                        The professional engine used internally and with early testers. It is designed to read market
-                        structure in a consistent, repeatable way across crypto, FX, indices and stocks.
-                    </p>
-                    <ul>
-                        <li>Additional internal regime states beyond simple bull / bear / neutral.</li>
-                        <li>Behaviour on stocks and indices is tuned for cleaner rotations and less visual noise.</li>
-                        <li>Forex behaviour focuses on how directional moves build, compress and release over time.</li>
-                    </ul>
-                    <p class="tagline">
-                        Engine Pro does not promise profitable trades. It aims to provide a stable bias map so timing and
-                        management decisions feel more deliberate.
-                    </p>
+
+                    <div class="tool-thumb-placeholder" style="height:180px;">
+                        Image placeholder
+                    </div>
 
                     <div class="card-more" style="display:none; margin-top:10px;">
-                        <div class="tool-thumb" style="margin-bottom:10px;">
-                            <img src="assets/v-core-engine-pro.jpg" alt="V-CORE Engine Pro placeholder">
-                        </div>
-                        <p style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">
-                            Planned professional edition of the V-CORE engine, extending the regime logic beyond the free releases.
+                        <p>
+                            The professional engine used internally and with early testers. It is designed to read market
+                            structure in a consistent, repeatable way across crypto, FX, indices and stocks.
                         </p>
-                        <p style="font-size:13px;color:var(--text-muted);">
-                            Designed for more detailed context mapping across crypto, FX, indices and stocks. Built for traders who want
-                            extended regime detail inside their charting workflow.
+                        <ul>
+                            <li>Additional internal regime states beyond simple bull / bear / neutral.</li>
+                            <li>Behaviour on stocks and indices is tuned for cleaner rotations and less visual noise.</li>
+                            <li>Forex behaviour focuses on how directional moves build, compress and release over time.</li>
+                        </ul>
+                        <p class="tagline">
+                            Engine Pro does not promise profitable trades. It aims to provide a stable bias map so timing and
+                            management decisions feel more deliberate.
                         </p>
                     </div>
 
@@ -1137,29 +1110,24 @@
 
                 <div class="card">
                     <h3>The Signal Governor (“The Gov”)</h3>
-                    <p>
-                        The Gov sits on top of the engine as a classification and filtering layer. It helps highlight
-                        sections of market behaviour that are more or less favourable for trade ideas.
-                    </p>
-                    <ul>
-                        <li>Tags opportunities into categories such as stronger, standard or lower-quality zones.</li>
-                        <li>Flags environments that often align with thin liquidity or unstable volatility.</li>
-                        <li>Built to sit alongside manual workflows, bots or external execution systems.</li>
-                    </ul>
-                    <p class="tagline">
-                        Early internal feedback describes the Gov as a way to separate ideas that deserve focus from
-                        those that are better treated as background noise.
-                    </p>
+
+                    <div class="tool-thumb-placeholder" style="height:180px;">
+                        Image placeholder
+                    </div>
 
                     <div class="card-more" style="display:none; margin-top:10px;">
-                        <div class="tool-thumb" style="margin-bottom:10px;">
-                            <img src="assets/v-core-signal-governor.jpg" alt="V-CORE Pro Signal Governor placeholder">
-                        </div>
-                        <p style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">
-                            Planned TradingView-focused version of the Signal Governor — built to sit on top of the V-CORE engine and classify environments for trade ideas.
+                        <p>
+                            The Gov sits on top of the engine as a classification and filtering layer. It helps highlight
+                            sections of market behaviour that are more or less favourable for trade ideas.
                         </p>
-                        <p style="font-size:13px;color:var(--text-muted);">
-                            Built to support more selective execution and filtering when Pro editions are released. Designed as a companion to Engine Pro, not a standalone signal system.
+                        <ul>
+                            <li>Tags opportunities into categories such as stronger, standard or lower-quality zones.</li>
+                            <li>Flags environments that often align with thin liquidity or unstable volatility.</li>
+                            <li>Built to sit alongside manual workflows, bots or external execution systems.</li>
+                        </ul>
+                        <p class="tagline">
+                            Early internal feedback describes the Gov as a way to separate ideas that deserve focus from
+                            those that are better treated as background noise.
                         </p>
                     </div>
 
@@ -1168,7 +1136,6 @@
                     </button>
                 </div>
             </div>
-
             <p style="margin-top:10px;font-size:13px;color:var(--text-muted);">
                 The V-CORE Pro suite is in active development. Early users on the access list will receive a free trial
                 of Engine Pro and the Signal Governor when retail editions go live.
@@ -1180,7 +1147,6 @@
             </p>
         </section>
 
-        <!-- PARTNER SECTION -->
         <section class="section" id="partner">
             <h2>PrimeXBT – Recommended Exchange</h2>
             <p>
@@ -1203,7 +1169,6 @@
             </p>
         </section>
 
-        <!-- CONTACT SECTION -->
         <section class="section" id="contact">
             <h2>Contact &amp; Links</h2>
             <p>
@@ -1226,7 +1191,6 @@
     </footer>
 </div>
 
-<!-- EARLY ACCESS MODAL USING FORMSUBMIT -->
 <div id="early-access-modal" class="modal-overlay" aria-hidden="true">
     <div class="modal-card">
         <button type="button" class="modal-close" aria-label="Close early access form">×</button>
@@ -1280,6 +1244,7 @@
 
     // Early access modal open/close
     const earlyAccessOpen = document.getElementById('early-access-open');
+    const earlyAccessOpenHero = document.getElementById('early-access-open-hero');
     const earlyAccessModal = document.getElementById('early-access-modal');
     const earlyAccessClose = earlyAccessModal.querySelector('.modal-close');
 
@@ -1294,6 +1259,9 @@
     }
 
     earlyAccessOpen.addEventListener('click', openEarlyAccessModal);
+    if (earlyAccessOpenHero) {
+        earlyAccessOpenHero.addEventListener('click', openEarlyAccessModal);
+    }
     earlyAccessClose.addEventListener('click', closeEarlyAccessModal);
 
     // Close when clicking outside the card
