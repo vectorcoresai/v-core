@@ -1228,7 +1228,7 @@
             </div>
 
             <p style="margin-top:10px;font-size:13px;color:var(--text-muted);">
-    The V-CORE Pro suite is in active development. Early users on the access list will receive a free trial of Engine Pro when the retail edition go live.
+    The V-CORE Pro suite is in active development. Early users on the access list will receive a free trial of Engine Pro when retail edition go live.
 </p>
             <p style="margin-top:8px;">
                 <button type="button" class="btn btn-yellow" id="early-access-open">
@@ -1290,29 +1290,38 @@
         </p>
 
         <form action="https://formsubmit.co/sales@vectorcoresai.com" method="POST" class="modal-form">
-            <input type="hidden" name="_subject" value="New Inquiry - VectorCoresAI">
-            <input type="text" name="_honey" style="display:none">
-            <input type="hidden" name="_next" value="https://vectorcoresai.com/thanks.html">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New V-CORE early access signup">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_replyto" value="%email%">
+    <input type="text" name="_honey" style="display:none">
 
-            <div class="modal-field">
-                <label for="ea-name">Name</label>
-                <input id="ea-name" type="text" name="name" class="modal-input" required>
-            </div>
+    <!-- TEMP while testing (remove comment when live + thanks.html exists) -->
+    <!-- <input type="hidden" name="_next" value="https://vectorcoresai.com/thanks.html"> -->
 
-            <div class="modal-field">
-                <label for="ea-email">Email</label>
-                <input id="ea-email" type="email" name="email" class="modal-input" required>
-            </div>
+    <div class="modal-field">
+        <label for="ea-name">Name</label>
+        <input id="ea-name" type="text" name="name" class="modal-input" required>
+    </div>
 
-            <div class="modal-field">
-                <label for="ea-tv">TradingView username</label>
-                <input id="ea-tv" type="text" name="tradingview_username" class="modal-input" required>
-            </div>
+    <div class="modal-field">
+        <label for="ea-email">Email</label>
+        <input id="ea-email" type="email" name="email" class="modal-input" required>
+    </div>
 
-            <button type="submit" class="btn btn-yellow modal-submit">
-                Submit
-            </button>
-        </form>
+    <div class="modal-field">
+        <label for="ea-tv">TradingView username</label>
+        <input id="ea-tv" type="text" name="tradingview" class="modal-input" required>
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-yellow modal-submit">
+        Get early access
+    </button>
+</form>
+
+
     </div>
 </div>
 
