@@ -1280,12 +1280,37 @@
             <p>
                 Questions, feedback, or interest in the V-CORE Pro suite and Signal Governor? Reach out below.
             </p>
-            <ul class="links-list">
-                <li class="tv"><strong>TradingView:</strong> <a href="#" id="tv-profile-link" target="_blank" rel="noopener">Vectorcoresai on TradingView</a></li>
-                <li class="x"><strong>X (Twitter):</strong> <a href="https://x.com/Vectorcoresai" target="_blank" rel="noopener">@Vectorcoresai</a></li>
-                <li class="ig"><strong>Instagram:</strong> <a href="https://instagram.com/Vectorcoresai" target="_blank" rel="noopener">@Vectorcoresai</a></li>
-                <li class="email"><strong>Email:</strong> <a href="mailto:admin@vectorcoresai.com">admin@vectorcoresai.com</a></li>
-            </ul>
+          <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;">
+    <!-- TradingView (JS will set href using tv-profile-link id) -->
+    <a href="#" id="tv-profile-link" target="_blank" rel="noopener"
+       style="display:inline-flex; width:32px; height:32px; border-radius:999px; overflow:hidden; background:#020617; border:1px solid rgba(148,163,184,0.6);">
+        <img src="assets/icon-tradingview.jpg" alt="TradingView"
+             style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+
+    <!-- X -->
+    <a href="https://x.com/Vectorcoresai" target="_blank" rel="noopener"
+       style="display:inline-flex; width:32px; height:32px; border-radius:999px; overflow:hidden; background:#020617; border:1px solid rgba(148,163,184,0.6);">
+        <img src="assets/icon-x.jpg" alt="X (Twitter)"
+             style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://instagram.com/Vectorcoresai" target="_blank" rel="noopener"
+       style="display:inline-flex; width:32px; height:32px; border-radius:999px; overflow:hidden; background:#020617; border:1px solid rgba(148,163,184,0.6);">
+        <img src="assets/icon-instagram.jpg" alt="Instagram"
+             style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:admin@vectorcoresai.com"
+       style="display:inline-flex; width:32px; height:32px; border-radius:999px; overflow:hidden; background:#020617; border:1px solid rgba(148,163,184,0.6);">
+        <img src="assets/icon-email.jpg" alt="Email"
+             style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+</div>
+
+
             <p style="margin-top:8px;font-size:13px;color:var(--text-muted);">
                 Use the subject line <strong>"V-CORE"</strong> or <strong>"Signal Governor"</strong> if you’re asking
                 about specific tools or early access.
@@ -1341,16 +1366,17 @@
 <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    var tvProfile = "https://www.tradingview.com/u/Vectorcoresai/#published-scripts";
-    document.getElementById("tv-link-main").href = tvProfile;
-    document.getElementById("tv-link-free-v1").href = tvProfile;
-    document.getElementById("tv-link-sma-lite").href = tvProfile;
-    document.getElementById("tv-link-free-v2").href = tvProfile;
-    document.getElementById("tv-link-fusion").href = tvProfile;
-    document.getElementById("tv-link-ob-lite").href = tvProfile;
-    document.getElementById("tv-link-rsi-div").href = tvProfile;
-    document.getElementById("tv-link-stoch-rsi").href = tvProfile;
-    document.getElementById("tv-profile-link").href = tvProfile;
+   var tvProfile = "https://www.tradingview.com/u/Vectorcoresai/#published-scripts";
+document.getElementById("tv-link-main").href = tvProfile;
+document.getElementById("tv-link-free-v1").href = tvProfile;
+document.getElementById("tv-link-sma-lite").href = tvProfile;
+document.getElementById("tv-link-free-v2").href = tvProfile;
+document.getElementById("tv-link-fusion").href = tvProfile;
+document.getElementById("tv-link-ob-lite").href = tvProfile;
+document.getElementById("tv-link-rsi-div").href = tvProfile;
+document.getElementById("tv-link-stoch-rsi").href = tvProfile;
+document.getElementById("tv-profile-link").href = tvProfile;
+
 
     const earlyAccessOpen = document.getElementById('early-access-open');
     const earlyAccessOpenHero = document.getElementById('early-access-open-hero');
