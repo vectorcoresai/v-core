@@ -207,6 +207,14 @@
             padding: 6px 12px;
             font-size: 12px;
         }
+        #free .relaunch-card {
+            cursor: pointer;
+        }
+
+        #free .relaunch-card:focus-within {
+            outline: 1px solid rgba(234, 179, 8, 0.45);
+            outline-offset: 4px;
+        }
 
         .hero-footnote {
             font-size: 12px;
@@ -368,7 +376,7 @@
         }
 
         .section ul:not(.links-list) li::before {
-            content: "•";
+            content: "â€¢";
             position: absolute;
             left: 0;
             top: 2px;
@@ -397,10 +405,10 @@
             color: var(--accent-alt);
         }
 
-        .links-list li.tv::before { content: "📈"; }
-        .links-list li.x::before { content: "✖️"; font-size: 10px; top: 4px; }
-        .links-list li.ig::before { content: "📸"; }
-        .links-list li.email::before { content: "📧"; }
+        .links-list li.tv::before { content: "ðŸ“ˆ"; }
+        .links-list li.x::before { content: "âœ–ï¸"; font-size: 10px; top: 4px; }
+        .links-list li.ig::before { content: "ðŸ“¸"; }
+        .links-list li.email::before { content: "ðŸ“§"; }
 
         .links-list li a {
             color: var(--accent-alt);
@@ -493,7 +501,7 @@
             display: block;
         }
 
-        /* ✅ NEW: Pro section larger image boxes */
+        /* âœ… NEW: Pro section larger image boxes */
         .pro-thumb {
             width: 100%;
             height: 320px;
@@ -689,10 +697,10 @@
 
             <div class="hero-actions">
                 <a class="btn btn-primary" href="#" id="tv-link-main" target="_blank" rel="noopener">
-                    View tools on TradingView →
+                    View tools on TradingView â†’
                 </a>
                 <button type="button" class="btn btn-yellow" id="early-access-open-hero">
-                    Join early access — request a Pro trial
+                    Join early access â€” request a Pro trial
                 </button>
             </div>
 
@@ -706,7 +714,7 @@
             <div class="hero-card">
                 <div class="hero-card-header">
                     <span class="hero-card-title">Regime snapshot (example)</span>
-                    <span class="hero-card-tag">Bull → Neutral → Bear</span>
+                    <span class="hero-card-tag">Bull â†’ Neutral â†’ Bear</span>
                 </div>
                 <div class="hero-card-body">
                     <div class="hero-card-bars">
@@ -757,7 +765,7 @@
         line-height:1.3;
         margin-bottom:6px;
     ">
-                    We’re serious about creating amazing indicators
+                    Weâ€™re serious about creating amazing indicators
                 </div>
 
                 <div style="
@@ -793,7 +801,7 @@
 
                 <p style="font-size:14px; color:#9ca3af; margin-bottom:6px;">
                     It continuously interprets structure, regime, and behavioural context across crypto, FX,
-                    indices, and stocks — providing a stable directional bias that traders use to time, manage,
+                    indices, and stocks â€” providing a stable directional bias that traders use to time, manage,
                     and filter decisions.
                 </p>
 
@@ -820,8 +828,8 @@
                 </p>
 
                 <p style="font-size:14px; color:#9ca3af; margin-bottom:6px;">
-                    These tools visualise specific aspects of market behaviour — such as volume, liquidity,
-                    structure, and trend — and are designed to be used independently or alongside other systems.
+                    These tools visualise specific aspects of market behaviour â€” such as volume, liquidity,
+                    structure, and trend â€” and are designed to be used independently or alongside other systems.
                 </p>
 
                 <p style="font-size:14px; color:#9ca3af; margin-bottom:6px;">
@@ -840,14 +848,14 @@
         <section class="section" id="free">
             <h2>Free tools on TradingView</h2>
             <p>
-                Start with the free VectorCoresAI indicators – all live on TradingView under the
-                <strong>Vectorcoresai</strong> account. These tools focus on readable, colour-coded regimes and
-                structure so traders can build their own approaches on top.
+                Explore the free VectorCoresAI indicator lineup while the TradingView toolset is being refreshed and
+                prepared for relaunch under the <strong>Vectorcoresai</strong> account. These tools focus on readable,
+                colour-coded regimes and structure so traders can build their own approaches on top.
             </p>
 
             <div class="tools-grid">
-                <div class="card">
-                    <a href="https://www.tradingview.com/script/6fvlSgHe-V-CORE-Engine-Free-v1/" target="_blank" rel="noopener" style="display:block;">
+                <div class="card relaunch-card">
+                    <a href="tradingview-tools-relaunch.html" target="_blank" rel="noopener" style="display:block;">
                         <div class="tool-thumb">
                             <img src="assets/v1.jpg" alt="V-CORE Engine Free v1 screenshot">
                         </div>
@@ -861,14 +869,14 @@
                         Good starting point if you want to see how regime colouring changes the way you read a chart.
                     </p>
                     <p style="margin-top:8px;display:none;">
-                        <a class="btn btn-ghost" href="#" id="tv-link-free-v1" target="_blank" rel="noopener">
-                            View on TradingView →
+                        <a class="btn btn-ghost" href="tradingview-tools-relaunch.html" id="tv-link-free-v1" target="_blank" rel="noopener">
+                            View on TradingView â†’
                         </a>
                     </p>
                 </div>
 
-                <div class="card">
-                    <a href="https://www.tradingview.com/script/1uwmfRNV-V-CORE-Engine-Free-v2/" target="_blank" rel="noopener" style="display:block;">
+                <div class="card relaunch-card">
+                    <a href="tradingview-tools-relaunch.html" target="_blank" rel="noopener" style="display:block;">
                         <div class="tool-thumb">
                             <img src="assets/v2.jpg" alt="V-CORE Engine Free v2 screenshot">
                         </div>
@@ -876,17 +884,17 @@
                     <h3>V-CORE Engine Free v2</h3>
                     <p>
                         Updated free engine with refined regimes and more responsive transitions on crypto markets.
-                        Fixed, non-editable logic – built as an educational way to learn the V-CORE approach.
+                        Fixed, non-editable logic â€“ built as an educational way to learn the V-CORE approach.
                     </p>
                     <p style="margin-top:8px;display:none;">
-                        <a class="btn btn-primary" href="#" id="tv-link-free-v2" target="_blank" rel="noopener">
-                            Open Free v2 on TradingView →
+                        <a class="btn btn-primary" href="tradingview-tools-relaunch.html" id="tv-link-free-v2" target="_blank" rel="noopener">
+                            Open Free v2 on TradingView â†’
                         </a>
                     </p>
                 </div>
 
-                <div class="card card-compact">
-                    <a href="https://www.tradingview.com/script/fI9fQW97-VCAI-RSI-Divergence/" target="_blank" rel="noopener" style="display:block;">
+                <div class="card card-compact relaunch-card">
+                    <a href="tradingview-tools-relaunch.html" target="_blank" rel="noopener" style="display:block;">
                         <div class="tool-thumb">
                             <img src="assets/vcai-rsi-div-plus.jpg" alt="VCAI RSI Divergence+ indicator screenshot">
                         </div>
@@ -903,8 +911,8 @@
                         </span>
                     </p>
                     <p style="margin-top:8px;display:none;">
-                        <a class="btn btn-ghost" href="#" id="tv-link-rsi-div" target="_blank" rel="noopener">
-                            View on TradingView →
+                        <a class="btn btn-ghost" href="tradingview-tools-relaunch.html" id="tv-link-rsi-div" target="_blank" rel="noopener">
+                            View on TradingView â†’
                         </a>
                     </p>
                     <button type="button" class="btn btn-ghost btn-readmore">
@@ -912,8 +920,8 @@
                     </button>
                 </div>
 
-                <div class="card card-compact">
-                    <a href="https://www.tradingview.com/script/QelUYg52-VCAI-Stochastic-RSI/" target="_blank" rel="noopener" style="display:block;">
+                <div class="card card-compact relaunch-card">
+                    <a href="tradingview-tools-relaunch.html" target="_blank" rel="noopener" style="display:block;">
                         <div class="tool-thumb">
                             <img src="assets/vcai-stoch-rsi-plus.jpg" alt="VCAI Stoch RSI+ indicator screenshot">
                         </div>
@@ -930,8 +938,8 @@
                         </span>
                     </p>
                     <p style="margin-top:8px;display:none;">
-                        <a class="btn btn-ghost" href="#" id="tv-link-stoch-rsi" target="_blank" rel="noopener">
-                            View on TradingView →
+                        <a class="btn btn-ghost" href="tradingview-tools-relaunch.html" id="tv-link-stoch-rsi" target="_blank" rel="noopener">
+                            View on TradingView â†’
                         </a>
                     </p>
                     <button type="button" class="btn btn-ghost btn-readmore">
@@ -947,8 +955,8 @@
             </p>
 
             <div class="tools-grid tools-grid-extra" id="extra-tools" style="display:none;">
-                <div class="card">
-                    <a href="https://www.tradingview.com/script/u5X1yil8-V-CORE-SMA-Matrix-Lite/" target="_blank" rel="noopener" style="display:block;">
+                <div class="card relaunch-card">
+                    <a href="tradingview-tools-relaunch.html" target="_blank" rel="noopener" style="display:block;">
                         <div class="tool-thumb">
                             <img src="assets/sma.jpg" alt="V-CORE SMA Matrix Lite screenshot">
                         </div>
@@ -959,17 +967,17 @@
                         reclaim behaviour using widely used moving averages.
                     </p>
                     <p class="tagline">
-                        Open-source Lite edition – useful as a structural map alongside any trend or momentum system.
+                        Open-source Lite edition â€“ useful as a structural map alongside any trend or momentum system.
                     </p>
                     <p style="margin-top:8px;display:none;">
-                        <a class="btn btn-ghost" href="#" id="tv-link-sma-lite" target="_blank" rel="noopener">
-                            View on TradingView →
+                        <a class="btn btn-ghost" href="tradingview-tools-relaunch.html" id="tv-link-sma-lite" target="_blank" rel="noopener">
+                            View on TradingView â†’
                         </a>
                     </p>
                 </div>
 
-                <div class="card">
-                    <a href="https://www.tradingview.com/script/70APatnx-VectorCoresAI-SMA-Bollinger-Fusion-v1/" target="_blank" rel="noopener" style="display:block;">
+                <div class="card relaunch-card">
+                    <a href="tradingview-tools-relaunch.html" target="_blank" rel="noopener" style="display:block;">
                         <div class="tool-thumb">
                             <img src="assets/sma-bb-fusion.jpg" alt="VectorCoresAI SMA + Bollinger Fusion v1 screenshot">
                         </div>
@@ -977,22 +985,24 @@
                     <h3>VCAI SMA + Bollinger Fusion</h3>
                     <p>
                         A clean fusion of 21/50/100/200 SMAs with modern Bollinger visuals.
-                        Includes adaptive “Fusion Squeeze” shading and optional SMA toggles.
+                        Includes adaptive â€œFusion Squeezeâ€ shading and optional SMA toggles.
                     </p>
                     <p class="tagline">
                         Part of the VectorCoresAI free toolkit.
                     </p>
                     <p style="margin-top:8px;display:none;">
-                        <a class="btn btn-ghost" href="#" id="tv-link-fusion" target="_blank" rel="noopener">
-                            View on TradingView →
+                        <a class="btn btn-ghost" href="tradingview-tools-relaunch.html" id="tv-link-fusion" target="_blank" rel="noopener">
+                            View on TradingView â†’
                         </a>
                     </p>
                 </div>
 
-                <div class="card">
-                    <div class="tool-thumb">
-                        <img src="assets/v-core-ob-lite.jpg" alt="V-CORE OB Lite placeholder">
-                    </div>
+                <div class="card relaunch-card">
+                    <a href="tradingview-tools-relaunch.html" target="_blank" rel="noopener" style="display:block;">
+                        <div class="tool-thumb">
+                            <img src="assets/v-core-ob-lite.jpg" alt="V-CORE OB Lite placeholder">
+                        </div>
+                    </a>
                     <h3>VCAI OB Lite</h3>
                     <p>
                         <span class="card-teaser">
@@ -1006,8 +1016,8 @@
                         </span>
                     </p>
                     <p style="margin-top:8px;display:none;">
-                        <a class="btn btn-ghost" href="#" id="tv-link-ob-lite" target="_blank" rel="noopener">
-                            View on TradingView →
+                        <a class="btn btn-ghost" href="tradingview-tools-relaunch.html" id="tv-link-ob-lite" target="_blank" rel="noopener">
+                            View on TradingView â†’
                         </a>
                     </p>
                     <button type="button" class="btn btn-ghost btn-readmore">
@@ -1015,8 +1025,8 @@
                     </button>
                 </div>
 
-                <div class="card">
-                    <a href="https://www.tradingview.com/script/4xKEgP8T-VCAI-Volume-Lite/" target="_blank" rel="noopener" style="display:block;">
+                <div class="card relaunch-card">
+                    <a href="tradingview-tools-relaunch.html" target="_blank" rel="noopener" style="display:block;">
                         <div class="tool-thumb">
                             <img src="assets/vcai-volume-lite.jpg" alt="VCAI Volume Lite indicator screenshot">
                         </div>
@@ -1024,7 +1034,7 @@
                     <h3>VCAI Volume Lite</h3>
                     <p>
                         <span class="card-teaser">
-                            VCAI Volume Lite gives a clear, modern view of real buy–sell participation using
+                            VCAI Volume Lite gives a clear, modern view of real buyâ€“sell participation using
                             colour-coded volume bars.
                         </span>
                         <span class="card-more" style="display:none;">
@@ -1036,8 +1046,8 @@
                     </button>
                 </div>
 
-                <div class="card">
-                    <a href="https://www.tradingview.com/script/SxlTyH44-VCAI-BOS-Zone-PRO/" target="_blank" rel="noopener" style="display:block;">
+                <div class="card relaunch-card">
+                    <a href="tradingview-tools-relaunch.html" target="_blank" rel="noopener" style="display:block;">
                         <div class="tool-thumb">
                             <img src="assets/vcai-bos-zone-pro.jpg" alt="VCAI BOS-Zone PRO indicator screenshot">
                         </div>
@@ -1058,8 +1068,8 @@
                     </button>
                 </div>
 
-                <div class="card">
-                    <a href="https://www.tradingview.com/script/3rFFOQVW-VCAI-Volume-Liquidity-Map-Lite/" target="_blank" rel="noopener" style="display:block;">
+                <div class="card relaunch-card">
+                    <a href="tradingview-tools-relaunch.html" target="_blank" rel="noopener" style="display:block;">
                         <div class="tool-thumb">
                             <img src="assets/vcai-volume-liquidity-lite.jpg" alt="VCAI Volume &amp; Liquidity Map Lite indicator screenshot">
                         </div>
@@ -1071,7 +1081,7 @@
                             mapping liquidity and volume horizontally beside price.
                         </span>
                         <span class="card-more" style="display:none;">
-                            It helps you see where the market is accepting value—and where it’s thin, reactive, or
+                            It helps you see where the market is accepting valueâ€”and where itâ€™s thin, reactive, or
                             vulnerable.
                         </span>
                     </p>
@@ -1080,8 +1090,8 @@
                     </button>
                 </div>
 
-                <div class="card card-compact">
-                    <a href="https://www.tradingview.com/script/ODwOCxoF-VCAI-MACD-Lite/" target="_blank" rel="noopener" style="display:block;">
+                <div class="card card-compact relaunch-card">
+                    <a href="tradingview-tools-relaunch.html" target="_blank" rel="noopener" style="display:block;">
                         <div class="tool-thumb">
                             <img src="assets/vcai-macd-lite.jpg" alt="VCAI MACD Lite indicator screenshot">
                         </div>
@@ -1089,7 +1099,7 @@
                     <h3>VCAI MACD Lite</h3>
                     <p>
                         <span class="card-teaser">
-                            A clean MACD built with VCAI visuals — selectable EMA/SMA and clear momentum shifts.
+                            A clean MACD built with VCAI visuals â€” selectable EMA/SMA and clear momentum shifts.
                         </span>
                         <span class="card-more" style="display:none;">
                             A 2-tone histogram shows strength or fading pressure at a glance.
@@ -1100,10 +1110,12 @@
                     </button>
                 </div>
 
-                <div class="card card-compact">
-                    <div class="tool-thumb">
-                        <img src="assets/vcai-trend-suite.jpg" alt="VCAI Trend Suite placeholder">
-                    </div>
+                <div class="card card-compact relaunch-card">
+                    <a href="tradingview-tools-relaunch.html" target="_blank" rel="noopener" style="display:block;">
+                        <div class="tool-thumb">
+                            <img src="assets/vcai-trend-suite.jpg" alt="VCAI Trend Suite placeholder">
+                        </div>
+                    </a>
                     <h3>VCAI Trend Suite</h3>
                     <p>
                         <span class="card-teaser">
@@ -1153,7 +1165,7 @@
                         <p><strong>What makes it different</strong></p>
 
                         <p>
-                            Unlike traditional indicators that react to price in isolation, V-CORE Engine Pro+ models context — how structure forms,
+                            Unlike traditional indicators that react to price in isolation, V-CORE Engine Pro+ models context â€” how structure forms,
                             shifts, compresses, and resolves over time.
                         </p>
 
@@ -1175,23 +1187,23 @@
 
                         <p>V-CORE Engine Pro+ unlocks:</p>
                         <ul>
-                            <li>All major markets — crypto, FX, indices, stocks</li>
-                            <li>All timeframes — from 1-second execution views to multi-year structure</li>
+                            <li>All major markets â€” crypto, FX, indices, stocks</li>
+                            <li>All timeframes â€” from 1-second execution views to multi-year structure</li>
                             <li>The complete Pro regime model not available in the free editions</li>
                         </ul>
 
                         <p>
-                            This allows the same structural logic to be used for scalping, swing trading, and long-term positioning — without switching tools.
+                            This allows the same structural logic to be used for scalping, swing trading, and long-term positioning â€” without switching tools.
                         </p>
 
-                        <p><strong>What it is (and isn’t)</strong></p>
+                        <p><strong>What it is (and isnâ€™t)</strong></p>
 
                         <p>
                             V-CORE Engine Pro+ does not promise profitable trades. It does something more important.
                         </p>
 
                         <p>
-                            It provides a stable, objective bias map — so entries, exits, and management decisions feel deliberate rather than reactive.
+                            It provides a stable, objective bias map â€” so entries, exits, and management decisions feel deliberate rather than reactive.
                         </p>
 
                         <p>
@@ -1199,7 +1211,7 @@
                         </p>
 
                         <p>
-                            Comparable systems exist — and they were studied closely during development.
+                            Comparable systems exist â€” and they were studied closely during development.
                             V-CORE Engine Pro+ was built to go further: broader market coverage, deeper regime logic, and tighter behavioural consistency across assets.
                         </p>
 
@@ -1212,7 +1224,7 @@
                 </div>
 
                 <div class="card">
-                    <h3>The Signal Governor (“The Gov”)</h3>
+                    <h3>The Signal Governor (â€œThe Govâ€)</h3>
 
                     <div class="pro-thumb" style="height:320px; border:none; background:none; padding:0; margin-bottom:10px;">
                         <img
@@ -1229,7 +1241,7 @@
                         </p>
                         <p>
                             Covering crypto, forex, commodities, stocks and indices, the Governor monitors a wide universe of instruments
-                            and sends frequent signals as conditions develop — allowing users to act, ignore, or manage risk in their own way.
+                            and sends frequent signals as conditions develop â€” allowing users to act, ignore, or manage risk in their own way.
                         </p>
                         <p>
                             The service is built for beginners looking for clear directional alerts, as well as experienced traders who want
@@ -1254,19 +1266,19 @@
             </p>
             <p style="margin-top:8px;">
                 <button type="button" class="btn btn-yellow" id="early-access-open">
-                    Join early access — request a Pro trial
+                    Join early access â€” request a Pro trial
                 </button>
             </p>
         </section>
 
         <section class="section" id="partner">
-            <h2>PrimeXBT – Recommended Exchange</h2>
+            <h2>PrimeXBT â€“ Recommended Exchange</h2>
             <p>
                 For users who want an exchange to test ideas and study market behaviour, PrimeXBT is a recommended
                 partner venue.
             </p>
             <p>
-                Some regions may see promotional bonuses or discounts depending on PrimeXBT’s own campaigns.
+                Some regions may see promotional bonuses or discounts depending on PrimeXBTâ€™s own campaigns.
             </p>
             <p style="margin-top:8px;">
                 <a class="btn btn-yellow" href="https://ref.primexbt.direct/223928" target="_blank" rel="noopener">
@@ -1316,21 +1328,21 @@
 
 
             <p style="margin-top:8px;font-size:13px;color:var(--text-muted);">
-                Use the subject line <strong>"V-CORE"</strong> or <strong>"Signal Governor"</strong> if you’re asking
+                Use the subject line <strong>"V-CORE"</strong> or <strong>"Signal Governor"</strong> if youâ€™re asking
                 about specific tools or early access.
             </p>
         </section>
     </main>
 
     <footer>
-        <span>© <span id="year"></span> VectorCoresAI — TradingView indicator &amp; analytics brand.</span>
+        <span>Â© <span id="year"></span> VectorCoresAI â€” TradingView indicator &amp; analytics brand.</span>
         <span>All tools are for educational and analytical use only and do not constitute financial advice.</span>
     </footer>
 </div>
 
 <div id="early-access-modal" class="modal-overlay" aria-hidden="true">
     <div class="modal-card">
-        <button type="button" class="modal-close" aria-label="Close early access form">×</button>
+        <button type="button" class="modal-close" aria-label="Close early access form">Ã—</button>
         <h3>Request V-CORE Pro early access</h3>
         <p class="modal-sub">
             We will not share your data with anyone.
@@ -1371,14 +1383,8 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
    var tvProfile = "https://www.tradingview.com/u/Vectorcoresai/#published-scripts";
+    var relaunchPage = "tradingview-tools-relaunch.html";
 document.getElementById("tv-link-main").href = tvProfile;
-document.getElementById("tv-link-free-v1").href = tvProfile;
-document.getElementById("tv-link-sma-lite").href = tvProfile;
-document.getElementById("tv-link-free-v2").href = tvProfile;
-document.getElementById("tv-link-fusion").href = tvProfile;
-document.getElementById("tv-link-ob-lite").href = tvProfile;
-document.getElementById("tv-link-rsi-div").href = tvProfile;
-document.getElementById("tv-link-stoch-rsi").href = tvProfile;
 document.getElementById("tv-profile-link").href = tvProfile;
 
 
@@ -1407,7 +1413,8 @@ document.getElementById("tv-profile-link").href = tvProfile;
 
     const readMoreButtons = document.querySelectorAll('.btn-readmore');
     readMoreButtons.forEach(function (btn) {
-        btn.addEventListener('click', function () {
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
             const card = btn.closest('.card');
             if (!card) return;
 
@@ -1436,6 +1443,31 @@ document.getElementById("tv-profile-link").href = tvProfile;
         extraTools.style.display = toolsExpanded ? 'grid' : 'none';
         toolsToggleBtn.textContent = toolsExpanded ? 'Hide additional tools' : 'Show more tools';
     });
+    const relaunchCards = document.querySelectorAll('#free .relaunch-card');
+    relaunchCards.forEach(function (card) {
+        card.tabIndex = 0;
+        card.setAttribute('role', 'link');
+
+        card.addEventListener('click', function (e) {
+            if (e.target.closest('a, button')) return;
+            window.open(relaunchPage, '_blank', 'noopener');
+        });
+
+        card.addEventListener('keydown', function (e) {
+            if (e.target !== card) return;
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                window.open(relaunchPage, '_blank', 'noopener');
+            }
+        });
+    });
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
