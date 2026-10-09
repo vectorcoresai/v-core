@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>G-Bert Puter Lab</title>
+<script src="https://js.puter.com/v2/"></script>
+<style>
+body{margin:0;background:#0b0b0f;color:#f3f3f6;font-family:system-ui,sans-serif}.wrap{max-width:860px;margin:auto;padding:28px}.card{background:#15151b;border:1px solid #2b2b35;border-radius:18px;padding:18px;margin:14px 0}button{background:#f5d547;color:#0b0b0f;border:0;border-radius:12px;padding:11px 14px;font-weight:700;margin:5px;cursor:pointer}.secondary{background:#252530;color:#f3f3f6}.danger{background:#47202a;color:#ffb4c0}.mono{font-family:ui-monospace,monospace;font-size:12px;white-space:pre-wrap;word-break:break-word;background:#0b0b0f;border:1px solid #252530;border-radius:12px;padding:12px;max-height:340px;overflow:auto}.muted{color:#9696a2;font-size:13px}.ok{color:#71e1a1}.bad{color:#ff8998}textarea{width:100%;min-height:100px;background:#0b0b0f;color:#fff;border:1px solid #2d2d3b;border-radius:12px;padding:12px;box-sizing:border-box}
+</style></head><body><div class="wrap">
+<h1><span style="color:#f5d547">G-Bert</span> Puter Lab</h1>
+<p class="muted">Temporary private-ish test page for measuring Puter sign-in friction, monthly allowance, Gemini 3.8 Flash usage and rate limits. No G-Bert Brain is included here.</p>
+<div class="card"><h3>1. Puter account</h3><div id="auth">Checking…</div><p><button id="signin">Sign in to Puter</button><button id="temp" class="secondary">Try temporary user</button><button id="signout" class="secondary">Sign out</button></p></div>
+<div class="card"><h3>2. Allowance meter</h3><button id="usage">Refresh usage</button><div id="usageOut" class="mono">No snapshot yet.</div></div>
+<div class="card"><h3>3. Gemini 3.8 Flash</h3><textarea id="prompt">Reply in one short sentence: what is 5/2 in decimal odds?</textarea><p><button id="run1">Run 1</button><button id="run5" class="secondary">Rinse ×5</button><button id="run20" class="danger">Rinse ×20</button></p><div id="status"></div><div id="reply" class="mono">No response yet.</div></div>
+<script>
+const $=x=>document.getElementById(x), sleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function auth(){try{if(!puter.auth.isSignedIn()){ $('auth').innerHTML='<span class="bad">Not signed in</span>'; return;} const u=await puter.auth.getUser(); $('auth').innerHTML='<span class="ok">Signed in</span> as <b>'+(u.username||u.email||u.uuid||'Puter user')+'</b>';}catch(e){$('auth').textContent='Auth check failed: '+(e?.message||e)}}
+async function usage(){try{$('usageOut').textContent=JSON.stringify(await puter.auth.getMonthlyUsage(),null,2)}catch(e){$('usageOut').textContent='Usage error: '+JSON.stringify(e,null,2)}}
+async function ensure(){if(!puter.auth.isSignedIn()) await puter.auth.signIn()}
+async function run(n){try{await ensure(); const before=await puter.auth.getMonthlyUsage().catch(()=>null); let last=''; for(let i=1;i<=n;i++){ $('status').textContent='Call '+i+' / '+n+'…'; const r=await puter.ai.chat($('prompt').value,{model:'google/gemini-3.8-flash'}); last=r?.message?.content?.toString?.() ?? String(r); $('reply').textContent=last; if(i<n) await sleep(300);} const after=await puter.auth.getMonthlyUsage().catch(()=>null); $('status').innerHTML='<span class="ok">Completed '+n+' call(s).</span>'; $('usageOut').textContent='BEFORE\n'+JSON.stringify(before,null,2)+'\n\nAFTER\n'+JSON.stringify(after,null,2)}catch(e){$('status').innerHTML='<span class="bad">Stopped.</span>'; $('reply').textContent='ERROR\n'+JSON.stringify(e,null,2); await usage()}}
+$('signin').onclick=async()=>{try{await puter.auth.signIn({request_auth:true});await auth();await usage()}catch(e){$('auth').textContent='Sign-in cancelled/failed: '+(e?.msg||e?.message||e)}};
+$('temp').onclick=async()=>{try{await puter.auth.signIn({attempt_temp_user_creation:true});await auth();await usage()}catch(e){$('auth').textContent='Temporary-user attempt failed: '+(e?.msg||e?.message||e)}};
+$('signout').onclick=async()=>{try{await puter.auth.signOut()}finally{await auth()}};
+$('usage').onclick=usage;$('run1').onclick=()=>run(1);$('run5').onclick=()=>run(5);$('run20').onclick=()=>run(20);auth().then(()=>{if(puter.auth.isSignedIn())usage()});
+</script></div></body></html>
