@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>G-Bert Auth Test</title>
+  <style>
+    body{margin:0;background:#0B0B0F;color:#F3F3F6;font-family:Arial,sans-serif;display:grid;place-items:center;min-height:100vh}
+    .card{width:min(92vw,460px);background:#15151B;border:1px solid #2D2D3B;border-radius:18px;padding:28px;box-sizing:border-box}
+    h1{margin:0 0 10px}.muted{color:#8B8B96;font-size:14px;line-height:1.5}.status{margin:18px 0;padding:12px;border-radius:10px;background:#0B0B0F;border:1px solid #252530;font-size:14px;word-break:break-word}
+    button{width:100%;padding:13px;border:0;border-radius:10px;font-weight:700;cursor:pointer;margin-top:10px}
+    .google{background:white;color:#111}.signout{background:#252530;color:white}.ok{color:#7ee787}.bad{color:#ff7b72}
+    .brand{color:#F5D547;font-weight:700}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="brand">VectorCoresAI</div>
+    <h1>G-Bert Google Login Test</h1>
+    <p class="muted">This page tests only Google identity through Supabase. No G-Bert Brain or Gemini secret is in this page.</p>
+    <div id="status" class="status">Checking session...</div>
+    <button id="login" class="google">Continue with Google</button>
+    <button id="logout" class="signout" style="display:none">Sign out</button>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const PROJECT_URL = 'https://rpeltfordaedirqfanfl.supabase.co';
+    const PUBLISHABLE_KEY = 'sb_publishable_t-HOFPsP8q-qK-QRN0On3g_gZ4DXvth';
+    const client = window.supabase.createClient(PROJECT_URL, PUBLISHABLE_KEY);
+
+    const status = document.getElementById('status');
+    const login = document.getElementById('login');
+    const logout = document.getElementById('logout');
+
+    function render(session) {
+      if (session?.user) {
+        status.innerHTML = '<span class="ok">SIGNED IN</span><br>' +
+          (session.user.email || 'No email returned') + '<br>' +
+          '<small>User ID: ' + session.user.id + '</small>';
+        login.style.display = 'none';
+        logout.style.display = 'block';
+      } else {
+        status.textContent = 'Not signed in.';
+        login.style.display = 'block';
+        logout.style.display = 'none';
+      }
+    }
+
+    client.auth.getSession().then(({data,error}) => {
+      if (error) status.innerHTML = '<span class="bad">' + error.message + '</span>';
+      else render(data.session);
+    });
+
+    client.auth.onAuthStateChange((_event, session) => render(session));
+
+    login.addEventListener('click', async () => {
+      status.textContent = 'Sending you to Google...';
+      const { error } = await client.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.href.split('#')[0].split('?')[0] }
+      });
+      if (error) status.innerHTML = '<span class="bad">' + error.message + '</span>';
+    });
+
+    logout.addEventListener('click', async () => {
+      await client.auth.signOut();
+      render(null);
+    });
+  </script>
+</body>
+</html>
